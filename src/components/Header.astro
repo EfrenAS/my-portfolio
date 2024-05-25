@@ -1,0 +1,20 @@
+---
+import LogoDesk from './LogoDesk.astro';
+import LogoMobile from './LogoMobile.astro';
+import Navigation from './Navigation.astro';
+---
+
+<header>
+  <LogoDesk />
+  <LogoMobile />
+  <Navigation />
+</header>
+
+<style>
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+</style>

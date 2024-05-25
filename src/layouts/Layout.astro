@@ -1,0 +1,66 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+<style is:global>
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+  :root {
+    /* Main Colors for this project */
+    --baby-powder: #fdfffc;
+    --rich-black: #021627;
+    --light-sea-green: #2ec4b6;
+    --red-pantone: #e71d36;
+    --orange-peel: #ff9f1c;
+
+    --white-color: var(--baby-powder);
+    --dark-color: var(--rich-black);
+  }
+
+  html {
+    box-sizing: border-box;
+    font-family: Manrope, Sarabun, sans-serif;
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--dark-color);
+    font-size: 1.6rem;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  a {
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  img,
+  picture {
+    max-width: 100%;
+    width: 100%;
+  }
+</style>
