@@ -14,8 +14,35 @@
   }
 
   nav a {
+    position: relative;
     color: var(--white-color);
     font-size: 1.6rem;
     padding: 1rem;
+    transition: all 0.5s ease;
+  }
+
+  nav a:hover {
+    color: var(--light-color);
+    font-weight: 600;
+  }
+
+  nav a:hover::after {
+    content: '•';
+    color: var(--orange-color);
+    font-size: 1.6rem;
+    position: absolute;
+    bottom: -0.3rem;
+    left: 40%;
+    animation: 0.3s linear 0s alternate selected-ancle;
+  }
+
+  @keyframes selected-ancle {
+    from {
+      transform: scale(0);
+    }
+
+    to {
+      transform: scale(1);
+    }
   }
 </style>
