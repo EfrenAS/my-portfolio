@@ -1,0 +1,129 @@
+---
+import SunIcon from './icons/SunIcon.astro';
+import MoonIcon from './icons/MoonIcon.astro';
+---
+
+<button class="theme__toggle">
+  <span class="icon--light">
+    <SunIcon />
+  </span>
+  <span class="icon--dark">
+    <MoonIcon />
+  </span>
+</button>
+<style>
+  .theme__toggle {
+    background: none;
+    border-radius: 50%;
+    border: none;
+    color: var(--orange-color);
+    cursor: pointer;
+    padding: 0.5rem 0.6rem;
+    overflow: hidden;
+  }
+
+  .theme__toggle:hover {
+    backdrop-filter: blur(5px);
+    background-color: rgba(2, 22, 39, 85%);
+  }
+
+  .theme__toggle > .icon--dark {
+    display: none;
+  }
+
+  .theme__toggle > .icon--light {
+    display: block;
+  }
+
+  .theme__toggle:hover .icon--light {
+    display: none;
+  }
+
+  .theme__toggle:hover .icon--dark {
+    display: block;
+    animation: 0.5s linear 0s alternate sunset;
+  }
+
+  /**** DARK THEME ****/
+  .theme__toggle.dark > .icon--light {
+    display: none;
+  }
+
+  .theme__toggle.dark > .icon--dark {
+    display: block;
+  }
+
+  .theme__toggle.dark:hover {
+    animation: 0.7s linear 0s alternate clarity;
+  }
+
+  .theme__toggle.dark:hover .icon--dark {
+    display: none;
+  }
+
+  .theme__toggle.dark:hover .icon--light {
+    display: block;
+    animation: 0.5s linear 0s alternate sun-rise;
+  }
+
+  /*** SUN-RISE Effect for Dark Theme ****/
+
+  @keyframes sun-rise {
+    from {
+      transform: translateY(20px);
+      color: var(--red-color);
+    }
+
+    to {
+      transform: translateY(0);
+      color: var(--orange-color);
+      filter: brightness(75%);
+    }
+  }
+
+  @keyframes clarity {
+    from {
+      opacity: 0;
+      background-color: var(--dark-color);
+    }
+
+    to {
+      opacity: 1;
+      background-color: rgba(253, 255, 252, 30%);
+    }
+  }
+
+  /*** SUNSET Effect for Light Theme ****/
+  @keyframes sunset {
+    from {
+      transform: translateY(-20px);
+      color: var(--white-color);
+    }
+
+    to {
+      transform: translateY(0px);
+      color: var(--orange-color);
+      filter: brightness(75%);
+    }
+  }
+</style>
+<script>
+  const toggleThemeButton = document.querySelector('.theme__toggle');
+  const themeStored = localStorage.getItem('theme');
+
+  if (themeStored === 'dark') {
+    toggleThemeButton?.classList.add('dark');
+  }
+
+  toggleThemeButton?.addEventListener('click', () => {
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('light__theme');
+      localStorage.setItem('theme', 'light');
+      toggleThemeButton?.classList.remove('dark');
+    } else {
+      document.body.classList.remove('light__theme');
+      localStorage.setItem('theme', 'dark');
+      toggleThemeButton?.classList.add('dark');
+    }
+  });
+</script>

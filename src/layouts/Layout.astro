@@ -36,6 +36,9 @@ const { title } = Astro.props;
     --light-color: var(--light-sea-green);
     --red-color: var(--red-pantone);
     --orange-color: var(--orange-peel);
+
+    /* Scheme Color */
+    color-scheme: light dark;
   }
 
   html {
@@ -46,8 +49,21 @@ const { title } = Astro.props;
   }
 
   body {
-    background-color: var(--dark-color);
+    background-color: var(--white-color);
+    color: var(--dark-color);
     font-size: 1.6rem;
+    display: grid;
+    height: 100vh;
+    grid-template-areas:
+      'header'
+      'main'
+      'footer';
+    grid-template-rows: 10rem 1fr 8rem;
+  }
+
+  body.dark__theme {
+    background-color: var(--dark-color);
+    color: var(--white-color);
   }
 
   *,
@@ -66,4 +82,46 @@ const { title } = Astro.props;
     max-width: 100%;
     width: 100%;
   }
+
+  /** Size Font **/
+  .font-sm {
+    font-size: 1.2rem;
+  }
+
+  /**** DARK THEME  ****/
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: var(--dark-color);
+      color: var(--white-color);
+    }
+
+    body.light__theme {
+      background-color: var(--white-color);
+      color: var(--dark-color);
+    }
+  }
 </style>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const colorThemePreference = setColorSchemePreference();
+
+    localStorage.setItem('theme', colorThemePreference);
+
+    if (colorThemePreference === 'light') {
+      document.body.classList.add('light__theme');
+    }
+  });
+
+  function setColorSchemePreference() {
+    if (
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+    ) {
+      return 'dark';
+    } else {
+      return 'light';
+    }
+
+    return 'no-preference';
+  }
+</script>
