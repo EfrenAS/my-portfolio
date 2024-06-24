@@ -1,0 +1,36 @@
+---
+import Link from './Link.astro';
+import Email from './icons/Email.astro';
+import Messenger from './icons/Messenger.astro';
+import WhatsApp from './icons/WhatsApp.astro';
+---
+
+<nav>
+  <Link
+    href="#"
+    target="_blank"
+    title="efren.anastacio@ymail.com"
+    rel="noopener noreferrer"
+  >
+    <Email />
+    efren.anastacio@ymail.com
+  </Link>
+  <Link
+    href="#"
+    target="_blank"
+    title="WhatApp llamada o mensaje"
+    rel="noopener noreferrer"
+  >
+    <WhatsApp />
+    +52 442-129-1550
+  </Link>
+  <Link
+    href="#"
+    target="_blank"
+    title="@efren.anastaciosimeon"
+    rel="noopener noreferrer"
+  >
+    <Messenger />
+    efren.anastaciosimeon
+  </Link>
+</nav>

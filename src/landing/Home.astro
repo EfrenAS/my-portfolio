@@ -1,0 +1,150 @@
+---
+import Link from '../components/Link.astro';
+---
+
+<section id="Home" class="home-section">
+  <section class="hello-section">
+    <Link
+      isButton
+      isBold
+      isGreen
+      isSmokedGreen
+      pushedRight
+      target="_blank"
+      href="www.linkedin.com/in/efren-anastacio"
+      title="Link hacia el perfil de Linkin de Efren Anastacio"
+    >
+      Disponible para trabajo
+      <span class="emoji">👋🏽</span>
+    </Link>
+    <p class="hello-text">Hola, soy</p>
+    <h1 class="my-name">Efrén Anastacio.</h1>
+    <h2 class="profession">Desarrollador <span>Front - End.</span></h2>
+  </section>
+  <section class="experience-section">
+    <p class="experience-text">
+      Ingeniero en Sistemas Computacionales con 2 años de experiencia en la
+      creación de sitios y aplicaciones dinámicas y responsivas, mi enfoque se
+      centra en combinar un diseño atractivo con una funcionalidad robusta,
+      utilizando tecnologías modernas como <span class="text-light">
+        <strong> HTML5</strong></span
+      >, <span class="text-light"> <strong>CSS3</strong> </span>, <span
+        class="text-light"
+      >
+        <strong> JavaScript</strong></span
+      > y frameworks como <span class="text-light">
+        <strong> React</strong></span
+      >.
+    </p>
+    <div class="links-container">
+      <Link
+        target="_blank"
+        href="mailto: efren.anastacio@ymail.com?subject=Hola%20Efren%20me%20encantaria%20integrarte%20a%20mi%20equipo."
+        title="Correo personal de Efren de Anastacio Simeon"
+        isBold
+        isBordered
+        isWhite
+      >
+        efren.anastacio@ymail.com
+      </Link>
+
+      <Link
+        isButton
+        isSmokedGreen
+        isGreen
+        isBold
+        target="_blank"
+        href="https://drive.google.com/file/d/16d7a6JETlwRFqTZg4wEtxvnVcDOvURfL/view?usp=drive_link"
+        title="Descargar Resumen"
+      >
+        Resumen
+        <span class="emoji"> ✍🏽 </span>
+      </Link>
+    </div>
+  </section>
+</section>
+
+<style>
+  .home-section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 4rem 0;
+    gap: 5rem;
+  }
+
+  .hello-text {
+    display: block;
+    font-size: clamp(var(--text-md), 1.6rem, var(--text-large));
+    font-weight: 600;
+    margin-top: 4rem;
+  }
+
+  .my-name {
+    font-size: clamp(5rem, 20vw, 80px);
+  }
+
+  .profession {
+    margin-top: 2rem;
+  }
+
+  .profession span {
+    color: var(--orange-color);
+  }
+
+  .experience-section {
+    width: 70rem;
+  }
+
+  .experience-text {
+    font-family: var(--font-texts);
+    font-size: clamp(var(--text-md), 2vw, 20px);
+    text-wrap: pretty;
+  }
+
+  .links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4rem;
+  }
+
+  @media (min-width: 480px) {
+    .links-container {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .hello-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .experience-section,
+  .hello-section {
+    width: 95%;
+  }
+
+  .emoji {
+    padding-left: 0.5rem;
+    font-size: var(--text-large);
+  }
+
+  @media (min-width: 600px) {
+    .experience-section,
+    .hello-section {
+      width: 80%;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .experience-section,
+    .hello-section {
+      width: 60%;
+    }
+  }
+</style>

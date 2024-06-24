@@ -1,0 +1,42 @@
+---
+import Facebook from './icons/Facebook.astro';
+import Github from './icons/Github.astro';
+import Instagram from './icons/Instagram.astro';
+import Linkedin from './icons/Linkedin.astro';
+---
+
+<nav class="social-media">
+  <a
+    href="www.linkedin.com/in/efren-anastacio"
+    class="link"
+    title="@efren-anastacio"
+    target="_blank"
+  >
+    <Linkedin />
+  </a>
+  <a
+    href="https://github.com/EfrenAS"
+    class="link"
+    title="@EfrenAS"
+    target="_blank"
+  >
+    <Github />
+  </a>
+</nav>
+<style>
+  .social-media {
+    display: flex;
+    gap: 3rem;
+  }
+
+  .link {
+    color: rgba(45, 196, 182, 40%);
+    transition: all 0.2s ease-in;
+  }
+
+  .link:hover {
+    color: var(--light-color);
+    transform: translate(0px, -4px);
+    outline: none;
+  }
+</style>

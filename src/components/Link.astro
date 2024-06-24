@@ -1,0 +1,123 @@
+---
+interface Props {
+  isBold?: boolean;
+  isButton?: boolean;
+  isBordered?: boolean;
+  isOrange?: boolean;
+  isGreen?: boolean;
+  isSmokedGreen?: boolean;
+  isWhite?: boolean;
+  href: string;
+  pushedRight?: boolean;
+  rel?: string;
+  target?: string;
+  title: string;
+}
+
+const {
+  target,
+  href,
+  title,
+  pushedRight,
+  isBold,
+  isButton,
+  isGreen,
+  isWhite,
+  isBordered,
+  isOrange,
+  isSmokedGreen,
+} = Astro.props;
+---
+
+<a
+  class:list={[
+    {
+      button: isButton,
+      'link-bordered': isBordered,
+      bold: isBold,
+      green: isGreen,
+      orange: isOrange,
+      'push-right': pushedRight,
+      'smoked-green': isSmokedGreen,
+      white: isWhite,
+    },
+  ]}
+  target={target}
+  href={href}
+  title={title}
+>
+  <slot />
+</a>
+<style>
+  .button,
+  .link-bordered {
+    width: fit-content;
+  }
+
+  .button {
+    backdrop-filter: blur(5px);
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+  }
+
+  .push-right {
+    margin-left: auto;
+  }
+
+  .bold {
+    font-weight: 600;
+  }
+  /* 
+  .white {
+    color: var(--white-color);
+  } */
+
+  .green {
+    color: rgba(46, 196, 182, 80%);
+    transition: all 0.3s ease;
+  }
+
+  .green:hover {
+    box-shadow: 3px 3px 0 0 var(--light-color);
+    color: rgba(46, 196, 182, 100%);
+    transform: translate(-5px, -5px);
+  }
+
+  .smoked-green {
+    background-color: rgba(46, 196, 182, 10%);
+  }
+
+  .orange {
+    background-color: rgba(255, 159, 28, 10%);
+    color: var(--orange-color);
+    transition: all 0.2s ease-in;
+  }
+
+  .orange:hover {
+    box-shadow: 4px 4px 0 0 var(--orange-color);
+    transform: translate(-5px, -5px);
+    outline: none;
+  }
+
+  .link-bordered {
+    position: relative;
+    padding: 1rem 0;
+  }
+
+  .link-bordered::after {
+    content: ' ';
+    position: absolute;
+    background-color: rgba(46, 196, 182, 80%);
+    border-radius: 5px;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 35%;
+    transition: all 0.4s ease-out;
+  }
+
+  .link-bordered:hover::after {
+    width: 100%;
+    background-color: rgba(46, 196, 182, 100%);
+  }
+</style>

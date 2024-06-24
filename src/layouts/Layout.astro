@@ -1,4 +1,6 @@
 ---
+import '../styles/normalize.css';
+
 interface Props {
   title: string;
 }
@@ -14,12 +16,12 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+  </head><body>
     <title>{title}</title>
-  </head>
-  <body>
-    <slot />
   </body>
+  <slot />
 </html>
+
 <style is:global>
   @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
@@ -27,15 +29,38 @@ const { title } = Astro.props;
     /* Main Colors for this project */
     --baby-powder: #fdfffc;
     --rich-black: #021627;
-    --light-sea-green: #2ec4b6;
+    --light-sea-green: rgba(46, 196, 182, 100%);
+    --caribbean-current: rgba(25, 97, 90, 100%);
     --red-pantone: #e71d36;
     --orange-peel: #ff9f1c;
 
     --white-color: var(--baby-powder);
     --dark-color: var(--rich-black);
-    --light-color: var(--light-sea-green);
     --red-color: var(--red-pantone);
     --orange-color: var(--orange-peel);
+
+    /*Dark Theme */
+    --light-green: var(--light-sea-green);
+
+    /* Light Theme */
+    --dark-green: var(--caribbean-current);
+
+    /* Font Types */
+    --font-titles: Sarabun, sans-serif;
+    --font-texts: Manrope, sans-serif;
+
+    /* Text Size */
+    --text-sm: 1.2rem;
+    --text-md: 1.4rem;
+    --text-normal: 1.6rem;
+    --text-large: 2rem;
+    --text-xl: 2.4rem;
+
+    /* Media Queries */
+    --d-small: 480px;
+    --d-medium: 900px;
+    --d-large: 1024px;
+    --d-xlarge: 1440px;
 
     /* Scheme Color */
     color-scheme: light dark;
@@ -43,7 +68,6 @@ const { title } = Astro.props;
 
   html {
     box-sizing: border-box;
-    font-family: Manrope, Sarabun, sans-serif;
     font-size: 62.5%;
     scroll-behavior: smooth;
   }
@@ -53,7 +77,7 @@ const { title } = Astro.props;
     color: var(--dark-color);
     font-size: 1.6rem;
     display: grid;
-    height: 100vh;
+    height: 97vh;
     grid-template-areas:
       'header'
       'main'
@@ -75,6 +99,36 @@ const { title } = Astro.props;
   a {
     cursor: pointer;
     text-decoration: none;
+    font-family: var(--font-titles);
+    color: var(--white-color);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    a {
+      color: var(--white-color);
+    }
+  }
+
+  body.light__theme a {
+    color: var(--dark-color);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-titles);
+    margin: 0;
+  }
+
+  h2 {
+    font-size: clamp(20px, 3vw, 35px);
+    filter: opacity(65%);
+  }
+
+  p {
+    font-family: var(--font-texts);
+    line-height: 1.5;
+    margin: 0;
   }
 
   img,
@@ -83,9 +137,29 @@ const { title } = Astro.props;
     width: 100%;
   }
 
+  /** GLOBAL STYLES **/
+
+  .section-padding {
+    padding: 4rem 2rem;
+  }
+
   /** Size Font **/
   .font-sm {
     font-size: 1.2rem;
+  }
+
+  /* Container */
+  .container {
+    margin: 0 auto;
+    max-width: 1400px;
+  }
+
+  .text-light {
+    color: var(--light-color);
+  }
+
+  .push-right {
+    margin-left: auto;
   }
 
   /**** DARK THEME  ****/

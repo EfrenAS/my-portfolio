@@ -2,25 +2,26 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+import HomeSection from '../landing/Home.astro';
+import ProjectsSection from '../landing/Projects.astro';
+import WorkSection from '../landing/Work.astro';
+import ContactSection from '../landing/Contact.astro';
 ---
 
-<Layout title="Mi Portafolio">
+<Layout title="Efren Anastacio">
   <Header />
-  <main>
-    <h1>Mi Portafolio</h1>
+  <main class="container">
+    <HomeSection />
+    <ProjectsSection />
+    <WorkSection />
+    <ContactSection />
   </main>
   <Footer />
 </Layout>
-
 <style>
   main {
     grid-area: main;
-    margin: auto;
     padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    color: var(--orange-peel);
-    font-size: 20px;
-    line-height: 1.6;
   }
 </style>

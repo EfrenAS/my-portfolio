@@ -1,0 +1,55 @@
+<div class="menu-mobile">
+  <div class="bar-1"></div>
+  <div class="bar-2"></div>
+  <div class="bar-3"></div>
+</div>
+<style>
+  .menu-mobile {
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  @media (min-width: 728px) {
+    .menu-mobile {
+      display: none;
+    }
+  }
+
+  /* Lines of menu icon */
+  .bar-1,
+  .bar-2,
+  .bar-3 {
+    background-color: var(--light-color);
+    height: 3px;
+    margin: 6px 0;
+    transition: 0.4s;
+    width: 30px;
+    border-radius: 10px;
+  }
+
+  /* Animation for when the .menu-toggle is clicked */
+  .change .bar-1 {
+    transform: translate(0, 11px) rotate(-45deg);
+  }
+
+  .change .bar-2 {
+    opacity: 0;
+  }
+
+  .change .bar-3 {
+    transform: translate(0, -11px) rotate(45deg);
+  }
+</style>
+<script>
+  // function toggleMenuButton() {
+  //         const menuButton = document.querySelector(".menu-toggle");
+  //         const menu = document.querySelector(".menu");
+
+  //         menuButton.addEventListener("click", (e) => {
+  //             e.target.closest(".menu-toggle").classList.toggle("change");
+  //             menu.classList.toggle("show-on");
+  //         });
+  //     }
+
+  //     toggleMenuButton();
+</script>

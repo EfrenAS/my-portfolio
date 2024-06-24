@@ -1,22 +1,27 @@
+---
+import MenuSocialMedia from './MenuSocialMedia.astro';
+---
+
 <footer>
+  <MenuSocialMedia />
   <p class="copyright font-sm">
-    2024 Creado y desarrollado por <a
-      href="https://github.com/EfrenAS/"
-      title="GitHub de EfrenAS"
-      target="_blank"
-    >
-      Efren Anastacio Simeon
-    </a>
+    2024 - Creado y desarrollado por Efrén Anastacio Simeón
   </p>
 </footer>
 
 <style>
   footer {
     grid-area: footer;
-    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 4rem;
   }
 
   footer p {
+    font-weight: 600;
     text-align: center;
   }
 

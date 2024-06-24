@@ -1,63 +1,45 @@
+---
+import Link from './Link.astro';
+---
+
 <nav>
-  <a href="/home">Inicio</a>
-  <a href="/projects">Proyectos</a>
-  <a href="/skills">Conocimientos</a>
-  <a href="/training">Formación</a>
-  <a href="/Contact">Contacto</a>
+  <Link href="#home" title="Inicio" isWhite isBordered> Home </Link>
+  <Link href="#projects" title="Proyectos" isWhite isBordered> Proyectos </Link>
+  <Link href="#work" title="Experiencia" isWhite isBordered> Experiencia </Link>
+  <Link href="#Contacto" title="'Contacto" isWhite isBordered> Contacto </Link>
 </nav>
 <style>
   nav {
-    padding: 1rem 2rem;
-    border-radius: 0.2rem;
+    display: none;
   }
 
-  nav a {
-    position: relative;
-    font-size: 1.6rem;
-    padding: 1rem;
-    transition: all 0.5s ease;
+  /**** Media Queries ****/
+  @media (min-width: 728px) {
+    nav {
+      display: flex;
+      gap: 3rem;
+    }
   }
 
-  nav a:hover {
-    color: var(--light-color);
-    font-weight: 600;
-  }
-
-  nav a:hover::after {
-    content: '•';
-    color: var(--orange-color);
-    font-size: 1.6rem;
-    position: absolute;
-    bottom: -0.3rem;
-    left: 40%;
-    animation: 0.3s linear 0s alternate selected-ancle;
+  nav .white {
+    color: var(--black-color);
   }
 
   /**** Dark Mode ****/
   @media (prefers-color-scheme: dark) {
-    nav {
-      backdrop-filter: blur(5px);
-      background-color: rgba(253, 255, 252, 10%);
-    }
-
-    nav a {
+    nav .white {
       color: var(--white-color);
     }
   }
 
   /**** Light Mode ****/
   @media (prefers-color-scheme: light) {
-    nav {
-      backdrop-filter: blur(5px);
-      background-color: rgba(253, 255, 252, 10%);
-    }
-
-    nav a {
+    nav .white {
       color: var(--black-color);
     }
   }
 
-  nav a {
+  nav .white {
     color: var(--black-color);
   }
 
