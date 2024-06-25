@@ -60,6 +60,11 @@ const {
     padding: 1rem 2rem;
   }
 
+  .link-bordered {
+    position: relative;
+    padding: 1rem 0;
+  }
+
   .push-right {
     margin-left: auto;
   }
@@ -67,24 +72,74 @@ const {
   .bold {
     font-weight: 600;
   }
-  /* 
-  .white {
-    color: var(--white-color);
-  } */
 
+  /* Light Theme */
   .green {
-    color: rgba(46, 196, 182, 80%);
+    color: rgba(25, 97, 90, 80%);
     transition: all 0.3s ease;
   }
 
   .green:hover {
-    box-shadow: 3px 3px 0 0 var(--light-color);
-    color: rgba(46, 196, 182, 100%);
+    color: var(--dark-green);
+    box-shadow: 3px 3px 0 0 var(--dark-green);
     transform: translate(-5px, -5px);
   }
 
-  .smoked-green {
-    background-color: rgba(46, 196, 182, 10%);
+  .link-bordered::after {
+    content: ' ';
+    position: absolute;
+    background-color: rgba(25, 97, 90, 80%);
+    border-radius: 5px;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 35%;
+    transition: all 0.4s ease-out;
+  }
+
+  .link-bordered:hover::after {
+    background-color: var(--dark-green);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .green {
+      color: rgba(46, 196, 182, 80%);
+    }
+
+    .green:hover {
+      box-shadow: 3px 3px 0 0 var(--light-green);
+      color: var(--light-green);
+    }
+
+    .smoked-green {
+      background-color: rgba(46, 196, 182, 10%);
+    }
+
+    .link-bordered::after {
+      background-color: rgba(46, 196, 182, 80%);
+    }
+
+    .link-bordered:hover::after {
+      width: 100%;
+      background-color: var(--light-green);
+    }
+
+    body.light__theme .green {
+      color: rgba(25, 97, 90, 80%);
+    }
+
+    body.light__theme .green:hover {
+      color: var(--dark-green);
+      box-shadow: 3px 3px 0 0 var(--dark-green);
+    }
+
+    body.light__theme .link-bordered::after {
+      background-color: rgba(25, 97, 90, 80%);
+    }
+
+    body.light_theme .link-bordered:hover::after {
+      background-color: var(--dark-green);
+    }
   }
 
   .orange {
@@ -97,27 +152,5 @@ const {
     box-shadow: 4px 4px 0 0 var(--orange-color);
     transform: translate(-5px, -5px);
     outline: none;
-  }
-
-  .link-bordered {
-    position: relative;
-    padding: 1rem 0;
-  }
-
-  .link-bordered::after {
-    content: ' ';
-    position: absolute;
-    background-color: rgba(46, 196, 182, 80%);
-    border-radius: 5px;
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    width: 35%;
-    transition: all 0.4s ease-out;
-  }
-
-  .link-bordered:hover::after {
-    width: 100%;
-    background-color: rgba(46, 196, 182, 100%);
   }
 </style>

@@ -27,8 +27,8 @@ const { title } = Astro.props;
 
   :root {
     /* Main Colors for this project */
-    --baby-powder: #fdfffc;
-    --rich-black: #021627;
+    --baby-powder: rgba(253, 255, 252, 100%);
+    --rich-black: rgba(2, 22, 39, 100%);
     --light-sea-green: rgba(46, 196, 182, 100%);
     --caribbean-current: rgba(25, 97, 90, 100%);
     --red-pantone: #e71d36;
@@ -154,8 +154,8 @@ const { title } = Astro.props;
     max-width: 1400px;
   }
 
-  .text-light {
-    color: var(--light-color);
+  .text-green {
+    color: var(--dark-green);
   }
 
   .push-right {
@@ -172,6 +172,14 @@ const { title } = Astro.props;
     body.light__theme {
       background-color: var(--white-color);
       color: var(--dark-color);
+    }
+
+    body.light__theme .text-green {
+      color: var(--dark-green);
+    }
+
+    .text-green {
+      color: var(--light-green);
     }
   }
 </style>
