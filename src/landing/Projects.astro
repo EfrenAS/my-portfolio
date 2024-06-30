@@ -1,3 +1,24 @@
+---
+import BlurryLeft from '../components/BlurryLeftBackground.astro';
+import BlurryRight from '../components/BlurryRightBackground.astro';
+---
+
 <section id="projects" class="section-padding">
-  <h2>Proyectos destacados <span>✨</span></h2>
+  <h2 class="title-lg text-green brightness-100 text-center">
+    Proyectos destacados <span>✨</span>
+  </h2>
+  <section class="projects__container">
+    <div class="project__card">
+      <BlurryLeft />
+    </div>
+    <BlurryRight />
+  </section>
 </section>
+<style>
+  .projects__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 4rem 0;
+  }
+</style>

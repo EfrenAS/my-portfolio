@@ -28,8 +28,8 @@ const { title } = Astro.props;
   :root {
     /* Main Colors for this project */
     --baby-powder: rgba(253, 255, 252, 100%);
-    --rich-black: rgba(2, 22, 39, 100%);
-    --light-sea-green: rgba(46, 196, 182, 100%);
+    --rich-black: hsl(208, 90%, 8%);
+    --light-sea-green: rgb(46, 194, 179);
     --caribbean-current: rgba(25, 97, 90, 100%);
     --red-pantone: #e71d36;
     --orange-peel: #ff9f1c;
@@ -76,13 +76,7 @@ const { title } = Astro.props;
     background-color: var(--white-color);
     color: var(--dark-color);
     font-size: 1.6rem;
-    display: grid;
-    height: 97vh;
-    grid-template-areas:
-      'header'
-      'main'
-      'footer';
-    grid-template-rows: 10rem 1fr 8rem;
+    height: 100vh;
   }
 
   body.dark__theme {
@@ -156,6 +150,18 @@ const { title } = Astro.props;
 
   .text-green {
     color: var(--dark-green);
+  }
+
+  .title-lg {
+    font-size: var(--text-xl);
+  }
+
+  .brightness-100 {
+    filter: brightness(100%);
+  }
+
+  .text-center {
+    text-align: center;
   }
 
   .push-right {
