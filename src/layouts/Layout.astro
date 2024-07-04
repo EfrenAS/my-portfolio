@@ -16,10 +16,11 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-  </head><body>
     <title>{title}</title>
+  </head>
+  <body>
+    <slot />
   </body>
-  <slot />
 </html>
 
 <style is:global>
@@ -28,11 +29,11 @@ const { title } = Astro.props;
   :root {
     /* Main Colors for this project */
     --baby-powder: rgba(253, 255, 252, 100%);
-    --rich-black: hsl(208, 90%, 8%);
+    --rich-black: rgb(2, 22, 39);
     --light-sea-green: rgb(46, 194, 179);
     --caribbean-current: rgba(25, 97, 90, 100%);
-    --red-pantone: #e71d36;
-    --orange-peel: #ff9f1c;
+    --red-pantone: rgb(231, 29, 52);
+    --orange-peel: rgb(255, 159, 28);
 
     --white-color: var(--baby-powder);
     --dark-color: var(--rich-black);

@@ -1,6 +1,6 @@
 ---
-import BlurryLeft from '../components/BlurryLeftBackground.astro';
 import BlurryRight from '../components/BlurryRightBackground.astro';
+import ProjectCard from '../components/ProjectCard.astro';
 ---
 
 <section id="projects" class="section-padding">
@@ -8,17 +8,16 @@ import BlurryRight from '../components/BlurryRightBackground.astro';
     Proyectos destacados <span>✨</span>
   </h2>
   <section class="projects__container">
-    <div class="project__card">
-      <BlurryLeft />
-    </div>
-    <BlurryRight />
+    <ProjectCard />
   </section>
 </section>
 <style>
   .projects__container {
     display: flex;
+    align-items: center;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 5rem;
     padding: 4rem 0;
   }
 </style>

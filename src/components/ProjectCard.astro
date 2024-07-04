@@ -1,0 +1,113 @@
+---
+import Link from './Link.astro';
+import GithubIcon from '../icons/Github.astro';
+import LinkIcon from '../icons/Link.astro';
+
+import { Image } from 'astro:assets';
+import cafeteando from '../assets/blog_cafe.png';
+---
+
+<div class="project__card">
+  <div class="card--image">
+    <Image
+      src={cafeteando}
+      alt="A image of screen capture of Cafeteando Webpage"
+    />
+  </div><!-- .card--image -->
+  <div class="card--text">
+    <h3 class="text-green">Título del projecto</h3>
+    <p class="project__description">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae iure
+      laborum dolorem, eveniet, iusto consequuntur doloremque nihil quod numquam
+      omnis ratione harum est nostrum maiores perspiciatis atque.
+    </p>
+    <div class="tags__container">
+      <span class="tag">Tag 1</span>
+    </div>
+    <div class="project__links">
+      <Link
+        href="#"
+        target="_blank"
+        title="Link to GitHub del proyecto"
+        isGreen
+      >
+        <GithubIcon />
+      </Link>
+      <Link href="#" target="_blank" title="Link to Web del proyecto" isGreen>
+        <LinkIcon />
+      </Link>
+    </div>
+  </div><!-- .card--text -->
+</div>
+
+<style>
+  .project__card {
+    position: relative;
+    width: 100%;
+  }
+
+  .card--image {
+    width: 60rem;
+  }
+
+  .card--image img {
+    filter: grayscale(0.6) brightness(0.6);
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease-out;
+  }
+
+  @media (min-width: 1200px) {
+    .card--image {
+      width: 70%;
+    }
+  }
+
+  .card--image:hover img {
+    filter: grayscale(0) brightness(1);
+  }
+
+  .card--text {
+    position: absolute;
+    top: 30%;
+    width: clamp(10rem, 35vw, 60rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 3rem;
+    background-color: rgba(2, 22, 39, 70%);
+    border-radius: 0.2rem;
+    height: fit-content;
+    padding: 1rem;
+    text-wrap: pretty;
+  }
+
+  .project__card:nth-child(odd) .card--text {
+    right: 2%;
+    text-align: right;
+    -webkit-box-shadow: 3px 3px 0px 0px rgba(46, 194, 179, 0.32);
+    -moz-box-shadow: 3px 3px 0px 0px rgba(46, 194, 179, 0.32);
+    box-shadow: 3px 3px 0px 0px rgba(46, 194, 179, 0.32);
+  }
+
+  .project__description {
+    font-size: var(--text-md);
+  }
+
+  .project__links {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .project__card:nth-child(odd) .project__links {
+    justify-content: flex-end;
+  }
+
+  @media (min-width: 1440px) {
+    .project__description {
+      font-size: var(--text-normal);
+    }
+  }
+</style>
