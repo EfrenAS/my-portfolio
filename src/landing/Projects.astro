@@ -3,7 +3,7 @@ import BlurryRight from '../components/BlurryRightBackground.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 ---
 
-<section id="projects" class="section-padding">
+<section id="projects" class="project__section">
   <h2 class="title-lg text-green brightness-100 text-center">
     Proyectos destacados <span>✨</span>
   </h2>
@@ -12,6 +12,10 @@ import ProjectCard from '../components/ProjectCard.astro';
   </section>
 </section>
 <style>
+  .project__section {
+    padding: 2rem 0;
+  }
+
   .projects__container {
     display: flex;
     align-items: center;

@@ -1,5 +1,6 @@
 ---
 import Link from './Link.astro';
+import Pill from '../components/Pill.astro';
 import GithubIcon from '../icons/Github.astro';
 import LinkIcon from '../icons/Link.astro';
 
@@ -22,7 +23,9 @@ import cafeteando from '../assets/blog_cafe.png';
       omnis ratione harum est nostrum maiores perspiciatis atque.
     </p>
     <div class="tags__container">
-      <span class="tag">Tag 1</span>
+      <Pill text="HTML" isSmall isOrangeText />
+      <Pill text="CSS" isSmall isOrangeText />
+      <Pill text="JavaScript" isSmall isOrangeText />
     </div>
     <div class="project__links">
       <Link
@@ -42,26 +45,43 @@ import cafeteando from '../assets/blog_cafe.png';
 
 <style>
   .project__card {
-    position: relative;
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    max-width: 120rem;
+  }
+
+  @media (min-width: 600px) {
+    .project__card {
+      position: relative;
+      width: 90%;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    .project__card {
+      width: 80%;
+    }
   }
 
   .card--image {
-    width: 60rem;
+    width: 100%;
+  }
+
+  @media (min-width: 600px) {
+    .card--image {
+      width: 80%;
+      max-width: 80rem;
+    }
   }
 
   .card--image img {
+    aspect-ratio: 3/2;
     filter: grayscale(0.6) brightness(0.6);
     height: 100%;
     max-width: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: all 0.5s ease-out;
-  }
-
-  @media (min-width: 1200px) {
-    .card--image {
-      width: 70%;
-    }
   }
 
   .card--image:hover img {
@@ -69,26 +89,56 @@ import cafeteando from '../assets/blog_cafe.png';
   }
 
   .card--text {
-    position: absolute;
-    top: 30%;
-    width: clamp(10rem, 35vw, 60rem);
+    position: relative;
+    height: fit-content;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 3rem;
     background-color: rgba(2, 22, 39, 70%);
     border-radius: 0.2rem;
-    height: fit-content;
+    margin-top: -8%;
     padding: 1rem;
     text-wrap: pretty;
   }
 
   .project__card:nth-child(odd) .card--text {
-    right: 2%;
     text-align: right;
     -webkit-box-shadow: 3px 3px 0px 0px rgba(46, 194, 179, 0.32);
     -moz-box-shadow: 3px 3px 0px 0px rgba(46, 194, 179, 0.32);
     box-shadow: 3px 3px 0px 0px rgba(46, 194, 179, 0.32);
+  }
+
+  @media (min-width: 480px) {
+    .card--text {
+      max-width: 45rem;
+      width: 90%;
+    }
+
+    .project__card:nth-child(odd) .card--text {
+      margin-top: -4rem;
+      margin-left: 8%;
+    }
+  }
+
+  @media (min-width: 720px) {
+    .project__card:nth-child(odd) .card--text {
+      margin-left: 25%;
+      margin-top: -15rem;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .card--text {
+      position: absolute;
+    }
+
+    .project__card:nth-child(odd) .card--text {
+      margin: 0;
+      top: 24%;
+      right: 0%;
+    }
   }
 
   .project__description {

@@ -1,37 +1,26 @@
 ---
-const { text, isSmoked, isSmall, pushedToRight } = Astro.props;
+interface Props {
+  text: string;
+  isSmall?: boolean;
+  isOrangeText?: boolean;
+}
+
+const { text, isSmall, isOrangeText } = Astro.props;
 ---
 
-<p
-  class:list={[
-    'pill',
-    { smoked: isSmoked, small: isSmall, right: pushedToRight },
-  ]}
->
+<span class:list={[{ 'tag-sm': isSmall, 'text-orange': isOrangeText }]}>
   {text}
-</p>
+</span>
 <style>
-  .pill {
-    color: var(--light-color);
-    border-radius: 3px;
+  .tag-sm {
     font-family: var(--font-texts);
-    font-size: clamp(var(--text-sm), 10vw, 30px);
-    font-weight: 600;
-    padding: 1rem 2rem;
-    text-transform: uppercase;
-    width: fit-content;
-  }
-
-  .smoked {
-    backdrop-filter: blur(5px);
-    background-color: rgba(46, 196, 182, 10%);
-  }
-
-  .small {
     font-size: var(--text-sm);
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
   }
 
-  .right {
-    margin-left: auto;
+  .text-orange {
+    color: var(--orange-color);
+    filter: brightness(0.7);
   }
 </style>
