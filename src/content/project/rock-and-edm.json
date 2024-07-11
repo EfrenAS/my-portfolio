@@ -1,0 +1,11 @@
+{
+  "title": "Rock & EDM Festival",
+  "description": "Landing Page para la promoción de un concierto, donde se muestra una galería de imágenes del concierto, horarios de presentación de los artistas y costos de boletos.",
+  "image": "../../assets/rock_and_edm.png",
+  "imageAlt": " Una captura de pantalla de el sitio web Rock & EDM Festival",
+  "width": 1920,
+  "height": 1080,
+  "gitHubLink": "https://github.com/EfrenAS/musicFestival",
+  "liveLink": "https://rockandedm-fest.netlify.app",
+  "tags": ["Html", "SCSS", "Javascript"]
+}

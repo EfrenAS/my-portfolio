@@ -1,26 +1,29 @@
 ---
 import Github from '../icons/Github.astro';
 import Linkedin from '../icons/Linkedin.astro';
+
+import Link from './Link.astro';
 ---
 
 <nav class="social-media">
-  <a
+  <Link
     href="www.linkedin.com/in/efren-anastacio"
-    class="link"
     title="@efren-anastacio"
     target="_blank"
+    isGreen
   >
     <Linkedin />
-  </a>
-  <a
-    href="https://github.com/EfrenAS"
-    class="link"
-    title="@EfrenAS"
+  </Link>
+  <Link
+    href="www.linkedin.com/in/efren-anastacio"
+    title="@efren-anastacio"
     target="_blank"
+    isGreen
   >
     <Github />
-  </a>
+  </Link>
 </nav>
+
 <style>
   .social-media {
     display: flex;

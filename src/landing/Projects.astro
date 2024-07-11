@@ -1,6 +1,8 @@
 ---
-import BlurryRight from '../components/BlurryRightBackground.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('project');
 ---
 
 <section id="projects" class="project__section">
@@ -8,7 +10,19 @@ import ProjectCard from '../components/ProjectCard.astro';
     Proyectos destacados <span>✨</span>
   </h2>
   <section class="projects__container">
-    <ProjectCard />
+    {
+      projects.map(({ data }) => (
+        <ProjectCard
+          title={data.title}
+          description={data.description}
+          gitHubLink={data.gitHubLink}
+          liveLink={data.liveLink}
+          image={data.image}
+          imageAlt={data.imageAlt}
+          tags={data.tags}
+        />
+      ))
+    }
   </section>
 </section>
 <style>
@@ -21,7 +35,7 @@ import ProjectCard from '../components/ProjectCard.astro';
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    gap: 5rem;
+    gap: 10rem;
     padding: 4rem 0;
   }
 </style>

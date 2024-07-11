@@ -1,0 +1,11 @@
+{
+  "title": "Blog del Cáfe",
+  "description": "Un proyecto realizado durante el curso de Desarrollo Web Completo donde se muestra el uso correcto de las etiquetas HTML para el maquetado de un sitio web y el uso de CSS para el layout y manejo de web responsive para el mismo.",
+  "image": "../../assets/blog_cafe.png",
+  "imageAlt": " Una captura de pantalla de el sitio web del Blog del Café",
+  "width": 1920,
+  "height": 1080,
+  "gitHubLink": "https://github.com/EfrenAS/cafeteria-blog",
+  "liveLink": "https://blogcafeteando.netlify.app/",
+  "tags": ["Html", "CSS", "Javascript"]
+}

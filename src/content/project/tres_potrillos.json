@@ -1,0 +1,11 @@
+{
+  "title": "Los Tres Potrillos Event & Hall Center",
+  "description": "Landing Page para mostrar los servicios que ofrece el salón de eventos, imagenes exclusivas de los eventos celebrados del mismo y formas de contacto con el propietario.",
+  "image": "../../assets/tres_potrillos.png",
+  "imageAlt": " Una captura de pantalla de el sitio web Los Tres Potrillos Event & Hall Center",
+  "width": 1920,
+  "height": 1080,
+  "gitHubLink": "https://github.com/EfrenAS/lostrespotrilloseventcenter",
+  "liveLink": "https://lostrespotrillosbeta.netlify.app",
+  "tags": ["Astro", "Javascript", "SCSS"]
+}

@@ -7,6 +7,7 @@ interface Props {
   isGreen?: boolean;
   isSmokedGreen?: boolean;
   isWhite?: boolean;
+  shadowEffect?: boolean;
   href: string;
   pushedRight?: boolean;
   rel?: string;
@@ -26,6 +27,7 @@ const {
   isBordered,
   isOrange,
   isSmokedGreen,
+  shadowEffect,
 } = Astro.props;
 ---
 
@@ -40,6 +42,7 @@ const {
       'push-right': pushedRight,
       'smoked-green': isSmokedGreen,
       white: isWhite,
+      'shadow-effect': shadowEffect,
     },
   ]}
   target={target}
@@ -81,8 +84,11 @@ const {
 
   .green:hover {
     color: var(--dark-green);
-    box-shadow: 3px 3px 0 0 var(--dark-green);
     transform: translate(-5px, -5px);
+  }
+
+  .shadow-effect:hover {
+    box-shadow: 3px 3px 0 0 var(--dark-green);
   }
 
   .link-bordered::after {
@@ -107,8 +113,11 @@ const {
     }
 
     .green:hover {
-      box-shadow: 3px 3px 0 0 var(--light-green);
       color: var(--light-green);
+    }
+
+    .shadow-effect:hover {
+      box-shadow: 3px 3px 0 0 var(--light-green);
     }
 
     .smoked-green {
@@ -130,6 +139,9 @@ const {
 
     body.light__theme .green:hover {
       color: var(--dark-green);
+    }
+
+    body.light__theme .shadow-effect:hover {
       box-shadow: 3px 3px 0 0 var(--dark-green);
     }
 
