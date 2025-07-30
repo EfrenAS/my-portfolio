@@ -1,5 +1,26 @@
-<section id="work" class="section-padding">
+---
+import WorkCard from '../components/WokrCard.astro';
+---
+
+<section id="work" class="section-padding work__section">
   <h2 class="title-lg text-green brightness-100 text-center">
     Grandes sueños, enormes experiencias <span>🤓</span>
   </h2>
+  <section class="work__container-cards">
+    <WorkCard />
+    <WorkCard />
+    <WorkCard />
+  </section>
 </section>
+<style>
+  .work__section {
+    height: fit-content;
+  }
+
+  .work__container-cards {
+    display: flex;
+    gap: 7rem;
+    justify-content: center;
+    margin: 4rem 0;
+  }
+</style>
