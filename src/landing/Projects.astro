@@ -1,6 +1,7 @@
 ---
 import ProjectCard from '../components/ProjectCard.astro';
 import { getCollection } from 'astro:content';
+import Github from '../icons/Github.astro';
 
 const projects = await getCollection('project');
 ---
@@ -23,19 +24,59 @@ const projects = await getCollection('project');
         />
       ))
     }
+
+    <a href="https://github.com/EfrenAS" target="_blank" class="projects-link" rel="noopener noreferrer">
+      <Github />
+      <span>Ver más proyectos</span>
+    </a>
+
   </section>
 </section>
 <style>
-  .project__section {
-    padding: 2rem 0;
-  }
 
   .projects__container {
     display: flex;
-    align-items: center;
     flex-direction: column;
-    justify-content: center;
-    gap: 10rem;
-    padding: 4rem 0;
+    gap: 6rem;
+    align-items: center;
+    padding: 4rem 2rem;
   }
+
+  .projects-link {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    width: 30rem;
+    background: linear-gradient(0deg, var(--dark-green) 0%, var(--dark-color) 90%);
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    text-decoration: none;
+  }
+
+  .projects-link:hover {
+    animation: fill-bottom-top 170ms ease-out;
+    background: linear-gradient(0deg, var(--light-green) 100%, var(--dark-green) 0%);
+    color: var(--dark-color);
+  }
+
+
+  @keyframes fill-bottom-top {
+    0% {
+      background: linear-gradient(0deg, var(--dark-green) 0%, var(--dark-color) 90%);
+    }
+    25% {
+      background: linear-gradient(0deg, var(--light-green) 25%, var(--dark-color) 75%);
+    }
+    50% {
+      background: linear-gradient(0deg, var(--light-green) 50%, var(--dark-color) 50%);
+    }
+    75% {
+      background: linear-gradient(0deg, var(--light-green) 75%, var(--dark-color) 25%);
+    }
+    100% {
+      background: linear-gradient(0deg, var(--light-green) 100%, var(--dark-green) 0%);
+    }
+  }
+
 </style>

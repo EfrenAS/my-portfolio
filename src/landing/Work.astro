@@ -2,23 +2,20 @@
 import WorkCard from '../components/WokrCard.astro';
 ---
 
-<section id="work" class="section-padding work__section">
+<section id="work" class="section-padding">
   <h2 class="title-lg text-green brightness-100 text-center">
     Grandes sueños, enormes experiencias <span>🤓</span>
   </h2>
-  <section class="work__container-cards">
+  <section class="work__container">
     <WorkCard />
     <WorkCard />
     <WorkCard />
   </section>
 </section>
 <style>
-  .work__section {
-    height: fit-content;
-  }
-
-  .work__container-cards {
+  .work__container {
     display: flex;
+    flex-direction: column;
     gap: 7rem;
     justify-content: center;
     margin: 4rem 0;

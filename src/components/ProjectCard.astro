@@ -10,19 +10,19 @@ const { title, description, gitHubLink, liveLink, tags, image, imageAlt } =
   Astro.props;
 ---
 
-<div class="project__card">
-  <div class="card--image">
+<div class="project-card">
+  <div class="card-image">
     <Picture inferSize src={image} formats={['avif', 'webp']} alt={imageAlt} />
   </div><!-- .card--image -->
-  <div class="card--text">
-    <h3 class="text-green">{title}</h3>
-    <p class="project__description">
+  <div class="card-text">
+    <h3>{title}</h3>
+    <p>
       {description}
     </p>
-    <div class="tags__container">
-      {tags.map((tag) => <Pill text={tag} isSmall isOrangeText />)}
+    <div>
+      {tags.map((tag: string) => <Pill text={tag} isSmall isOrangeText />)}
     </div>
-    <div class="project__links">
+    <div class="links">
       <Link
         href={gitHubLink}
         target="_blank"
@@ -44,163 +44,162 @@ const { title, description, gitHubLink, liveLink, tags, image, imageAlt } =
 </div>
 
 <style>
-  .project__card {
+  .project-card {
+    position: relative;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    max-width: 120rem;
+    gap: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 3px 3px 8px 0px rgba(44, 184, 170, 0.75);
+    -webkit-box-shadow: 3px 3px 8px 0px rgba(46,194,179,0.75);
+    -moz-box-shadow: 3px 3px 8px 0px rgba(46,194,179,0.75);
   }
 
-  @media (min-width: 600px) {
-    .project__card {
-      position: relative;
-      width: 90%;
+  .project-card:hover img{
+    filter: grayscale(0) brightness(1);
+    
+  }
+  
+  @media(min-width: 600px){
+    .project-card {
+      width: 50rem;
+    }
+    .project-card:nth-child(even) {
+      align-self: flex-end;
+      margin-right: 0;
+    }
+
+    .project-card p:nth-child(even) {
+      text-align: left;
+    }
+    
+    .project-card:nth-child(odd) {
+      align-self: flex-start;
+      margin-left: 0;
+    }
+    
+    
+    .project-card p:nth-child(odd) {
+      text-align: right;
+      }
+    }
+    
+    @media(min-width: 800px){
+
+    .project-card{
+      width: 60rem;
+    }
+    
+    .project-card:nth-child(even) {
+      
+      & > .card-text {
+        left: -23%;
+        
+        & h3 {
+          text-align: left;
+        }
+
+        & p {
+          text-align: left;
+        }
+      }
+    }
+    
+    .project-card:nth-child(odd) {
+      & > .card-text {
+        align-items: flex-end;
+        right: -23%;
+
+        & h3 {
+          text-align: right;
+        }
+
+        & p {
+          text-align: right;
+        }
+      }
     }
   }
 
-  @media (min-width: 900px) {
-    .project__card {
-      flex-direction: row;
+  @media(min-width: 1200px){
+    .project-card{
+      width: 70rem;
+    }
+    
+    .project-card:nth-child(even) > .card-text {
+      left: -40%;
     }
 
-    .project__card:nth-child(even) {
-      flex-direction: row-reverse;
-    }
-  }
-
-  @media (min-width: 1400px) {
-    .project__card {
-      width: 80%;
+    .project-card:nth-child(odd) > .card-text {
+      right: -40%;
     }
   }
 
-  .card--image {
-    width: 100%;
-  }
-
-  @media (min-width: 480px) {
-    .project__card:nth-child(even) .card--image {
-      -webkit-box-shadow: 12px 10px 10px -6px rgba(25, 97, 90, 0.5);
-      -moz-box-shadow: 12px 10px 10px -6px rgba(25, 97, 90, 0.32);
-      box-shadow: 12px 10px 10px -6px rgba(25, 97, 90, 0.4);
-    }
-
-    .card--image:nth-child(odd) {
-      -webkit-box-shadow: -12px 10px 10px -6px rgba(25, 97, 90, 0.5);
-      -moz-box-shadow: -12px 10px 10px -6px rgba(25, 97, 90, 0.32);
-      box-shadow: -12px 10px 10px -6px rgba(25, 97, 90, 0.4);
-    }
-  }
-
-  @media (min-width: 600px) {
-    .card--image {
-      width: 80%;
-      max-width: 80rem;
-    }
-
-    .project__card:nth-child(even) .card--image {
-      margin-left: auto;
-    }
-  }
-
-  .card--image img {
+  .card-image img {
     filter: grayscale(0.6) brightness(0.6);
-    height: 100%;
-    max-width: 100%;
-    object-fit: contain;
+    width: 100%;
+    height: fit-content;
+    object-fit: cover;
     transition: all 0.5s ease-out;
   }
 
-  .card--image:hover img {
-    filter: grayscale(0) brightness(1);
+  .card-image,
+  .card-image img {
+    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
   }
 
-  .card--text,
-  .card--image,
-  .card--image img {
-    border-radius: 0.5rem;
-  }
-
-  .card--text {
-    position: relative;
-    height: fit-content;
-    width: 100%;
-    max-width: 50rem;
+  .card-text {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 3rem;
-    background-color: rgba(253, 255, 252, 80%);
+    gap: 2rem;
+    background-color: rgba(253, 255, 252, 0.5);
+    backdrop-filter: blur(5px);
     padding: 1rem;
-    text-wrap: pretty;
-    top: -4rem;
+    border-radius: 0.5rem;
+  }
+
+  @media(min-width: 800px){
+    .card-text {
+      position: absolute;
+      width: 40rem;
+      top: calc(25% - 2rem);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  @media(min-width:1200px) {
+    .card-text {
+      width: 50rem;
+    }
   }
 
   @media (prefers-color-scheme: dark) {
-    .card--text {
+    .card-text {
       background-color: rgba(2, 22, 39, 70%);
     }
 
-    body.light__theme .card--text {
-      background-color: rgba(253, 255, 252, 80%);
+    body.light__theme .card-text {
+      background-color: rgba(253, 255, 252, 50%);
     }
   }
 
-  @media (min-width: 480px) {
-    .card--text {
-      top: -10rem;
-    }
-
-    .project__card:nth-child(odd) .card--text {
-      margin-left: auto;
-    }
+  .card-text h3 {
+    background: linear-gradient(0deg, #2ec2b3, #196163);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
-  @media (min-width: 900px) {
-    .project__card:nth-child(odd) .card--text {
-      position: absolute;
-      right: 0;
-      top: 22%;
-    }
-
-    .project__card:nth-child(even) .card--text {
-      position: absolute;
-      left: 0;
-      top: 22%;
-    }
-  }
-
-  .project__card:nth-child(odd) .card--text {
-    text-align: right;
-    -webkit-box-shadow: 3px 3px 0px 0px rgba(46, 194, 179, 0.32);
-    -moz-box-shadow: 3px 3px 0px 0px rgba(46, 194, 179, 0.32);
-    box-shadow: 3px 3px 0px 0px rgba(46, 194, 179, 0.32);
-  }
-
-  .project__card:nth-child(even) .card--text {
-    text-align: initial;
-    -webkit-box-shadow: -3px 3px 0px 0px rgba(46, 194, 179, 0.32);
-    -moz-box-shadow: -3px 3px 0px 0px rgba(46, 194, 179, 0.32);
-    box-shadow: -3px 3px 0px 0px rgba(46, 194, 179, 0.32);
-  }
-
-  .project__description {
+  .card-text p {
     font-size: var(--text-md);
+    text-align: left;
   }
 
-  .project__links {
+  .card-text .links {
     display: flex;
     gap: 2rem;
     margin-top: 1rem;
-  }
-
-  .project__card:nth-child(odd) .project__links {
-    justify-content: flex-end;
-  }
-
-  @media (min-width: 1440px) {
-    .project__description {
-      font-size: var(--text-normal);
-    }
   }
 </style>

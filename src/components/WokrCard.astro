@@ -1,10 +1,7 @@
 <div class="work__card">
-  <div class="work__titles">
-    <input type="checkbox" id="card__toggle" class="toggle__button" />
-    <label for="card__toggle" class="work__title">
-      <h3>2019- 2020</h3>
-      <h4>Cronos Soluciones de Integración Freelancer</h4>
-    </label>
+  <div class="work__title">
+    <h3>2019- 2020</h3>
+    <h4>Cronos Soluciones de Integración Freelancer</h4>
   </div>
   <div class="work__descritpion">
     <p>
@@ -21,39 +18,16 @@
 <style>
   .work__card {
     background-color: rgba(46, 196, 182, 10%);
+    width: 100%;
+    max-width: 600px;
     border-radius: 2px;
     padding: 2rem;
     position: relative;
     height: fit-content;
-    flex-basis: 30rem;
     transition: background 0.5s ease-out;
   }
 
   .work__card:hover {
     background-color: rgba(46, 196, 182, 20%);
-  }
-
-  .work__card::after {
-    content: '';
-    box-shadow: 3px 3px 0px 0px rgba(46, 194, 179, 0.7);
-    border-radius: 2px;
-    position: absolute;
-    top: 2rem;
-    right: -2rem;
-    height: 100%;
-    width: 100%;
-  }
-
-  .work__titles {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 20rem;
-  }
-
-  .work__descritpion {
-    display: none;
-    opacity: 1;
-    text-wrap: pretty;
   }
 </style>

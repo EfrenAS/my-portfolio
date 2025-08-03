@@ -2,8 +2,7 @@
 import Link from '../components/Link.astro';
 ---
 
-<section id="Home" class="home-section">
-  <section class="hello-section">
+<main id="Home" class="home">
     <Link
       isButton
       isBold
@@ -18,35 +17,35 @@ import Link from '../components/Link.astro';
       Disponible para trabajo
       <span class="emoji">👋🏽</span>
     </Link>
-    <p class="hello-text">Hola, soy</p>
-    <h1 class="my-name">Efrén Anastacio.</h1>
-    <h2 class="profession">Desarrollador <span>Full Stack.</span></h2>
-  </section>
-  <section class="experience-section">
-    <p class="experience-text">
-      Ingeniero en Sistemas Computacionales con 2 años de experiencia en la
-      creación de sitios y aplicaciones dinámicas y responsivas, mi enfoque se
-      centra en combinar un diseño atractivo con una funcionalidad robusta,
-      utilizando tecnologías modernas como <span class="text-green">
-        <strong> HTML5</strong></span
-      >, <span class="text-green"> <strong>CSS3</strong> </span>, <span
-        class="text-green"
-      >
-        <strong> JavaScript</strong></span
-      > y frameworks como <span class="text-green">
-        <strong> React</strong></span
-      >.
-    </p>
+    <div class="hero">
+      <p class="hello-text">Hola, soy</p>
+      <h1 class="my-name">Efrén Anastacio.</h1>
+      <h2 class="profession">Desarrollador <span>Full Stack.</span></h2>
+      <p class="experience-text">
+        Con 2 años de experiencia en la
+        creación de sitios y aplicaciones dinámicas y responsivas, mi enfoque se
+        centra en combinar un diseño atractivo con una funcionalidad robusta,
+        utilizando tecnologías modernas como <span class="text-green">
+          <strong> HTML5</strong></span
+        >, <span class="text-green"> <strong>CSS3</strong> </span>, <span
+          class="text-green"
+        >
+          <strong> JavaScript</strong></span
+        > y frameworks como <span class="text-green">
+          <strong> React</strong></span
+        >.
+      </p>
+    </div>
     <div class="links-container">
       <Link
         target="_blank"
-        href="mailto: efren.anastacio@ymail.com?subject=Hola%20Efren%20me%20encantaria%20integrarte%20a%20mi%20equipo."
+        href="mailto: histrix.dev@gmail.com?subject=Hola%20Efren%20me%20encantaria%20integrarte%20a%20mi%20equipo."
         title="Correo personal de Efren de Anastacio Simeon"
         isBold
         isBordered
         isWhite
       >
-        efren.anastacio@ymail.com
+        histrix.dev@gmail.com
       </Link>
 
       <Link
@@ -63,91 +62,65 @@ import Link from '../components/Link.astro';
         <span class="emoji"> ✍🏽 </span>
       </Link>
     </div>
-  </section>
-</section>
+</main>
 
 <style>
-  .home-section {
+  .home {
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
-    padding: 2rem 0;
     gap: 2rem;
     height: 100vh;
+    padding: 2rem;
   }
 
   .hello-text {
     display: block;
     font-size: clamp(var(--text-md), 1.6rem, var(--text-large));
     font-weight: 600;
-    margin-top: 4rem;
   }
 
   .my-name {
-    font-size: clamp(5rem, 19vw, 80px);
-  }
-
-  .profession {
-    margin-top: 2rem;
+    font-size: clamp(5rem, 19vw, 12rem);
   }
 
   .profession span {
     color: var(--orange-color);
   }
 
-  .experience-section {
-    width: 70rem;
-  }
-
   .experience-text {
     font-family: var(--font-texts);
     font-size: clamp(var(--text-md), 2vw, 20px);
     text-wrap: pretty;
+    margin-top: 4rem;
   }
 
   .links-container {
     display: flex;
-    flex-direction: column;
     gap: 4rem;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin-top: 4rem;
+    padding-bottom: 4rem;
+    width: 100%;
   }
 
   @media (min-width: 480px) {
     .links-container {
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: end;
     }
   }
 
-  .hello-section {
+  .hero {
     display: flex;
     flex-direction: column;
-  }
-
-  .experience-section,
-  .hello-section {
-    width: 95%;
+    gap: 2rem;
   }
 
   .emoji {
     padding-left: 0.5rem;
     font-size: var(--text-large);
-  }
-
-  @media (min-width: 600px) {
-    .experience-section,
-    .hello-section {
-      width: 80%;
-    }
-  }
-
-  @media (min-width: 1440px) {
-    .experience-section,
-    .hello-section {
-      width: 60%;
-    }
   }
 </style>

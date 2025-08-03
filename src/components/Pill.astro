@@ -3,12 +3,13 @@ interface Props {
   text: string;
   isSmall?: boolean;
   isOrangeText?: boolean;
+  bgPrimary?: boolean;
 }
 
-const { text, isSmall, isOrangeText } = Astro.props;
+const { text, isSmall, isOrangeText, bgPrimary } = Astro.props;
 ---
 
-<span class:list={[{ 'tag-sm': isSmall, 'text-orange': isOrangeText }]}>
+<span class:list={[{ 'tag-sm': isSmall, 'text-orange': isOrangeText, 'bg-primary': bgPrimary }]}>
   {text}
 </span>
 <style>
@@ -16,12 +17,16 @@ const { text, isSmall, isOrangeText } = Astro.props;
     font-family: var(--font-texts);
     font-size: var(--text-sm);
     font-weight: 600;
-    padding: 0.25rem 0.5rem;
+    padding: 0.5rem 1rem;
     text-transform: uppercase;
+    border-radius: 4rem;
   }
 
   .text-orange {
     color: var(--orange-color);
-    filter: brightness(0.7);
+  }
+
+  .bg-primary{
+    background-color: var(--dark-color);
   }
 </style>

@@ -24,7 +24,6 @@ const { title } = Astro.props;
 </html>
 
 <style is:global>
-  /* @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap'); */
   @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Philosopher:wght@400;700&display=swap');
   :root {
     /* Main Colors for this project */
@@ -75,6 +74,8 @@ const { title } = Astro.props;
 
   body {
     background-color: var(--white-color);
+    background: radial-gradient(circle at top, #15534d 0%, #021627 70%);
+    background-repeat: no-repeat;
     color: var(--dark-color);
     font-size: 1.6rem;
     height: 100vh;
@@ -82,6 +83,8 @@ const { title } = Astro.props;
 
   body.dark__theme {
     background-color: var(--dark-color);
+    background: radial-gradient(circle at top, #15534d 0%, #021627 70%);
+    background-repeat: no-repeat;
     color: var(--white-color);
   }
 
@@ -147,7 +150,8 @@ const { title } = Astro.props;
   /* Container */
   .container {
     margin: 0 auto;
-    max-width: 1400px;
+    width: 100%;
+    max-width: 120rem;
   }
 
   .text-green {
@@ -173,11 +177,14 @@ const { title } = Astro.props;
   /**** DARK THEME  ****/
   @media (prefers-color-scheme: dark) {
     body {
+      background: radial-gradient(circle at top, #15534d 0%, #021627 70%);
       background-color: var(--dark-color);
+      background-repeat: no-repeat;
       color: var(--white-color);
     }
 
     body.light__theme {
+      background: none;
       background-color: var(--white-color);
       color: var(--dark-color);
     }
