@@ -52,6 +52,14 @@ const {
   <slot />
 </a>
 <style>
+
+  a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
   .button,
   .link-bordered {
     width: fit-content;
@@ -84,7 +92,7 @@ const {
 
   .green:hover {
     color: var(--dark-green);
-    transform: translate(-5px, -5px);
+    transform: scale(1.1);
   }
 
   .shadow-effect:hover {

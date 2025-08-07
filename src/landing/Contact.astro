@@ -1,3 +1,50 @@
-<section id="contact" class="section-padding">
+---
+import ContactNavigation from '../components/ContactNavigation.astro';
+---
+
+<section id="contact" class="section-padding container contact">
   <h2>Quieres compartir conmigo tu idea? ¡Hablemos! <span>🤝🏽</span></h2>
+  <a
+    class="link"
+    href="mailto: histrix.dev@gmail.com?subject=Hola%20Efren%20me%20encantaria%20compartir%20mi%20idea%20contigo."
+    target="_blank"
+    title="Correo personal de Efren de Anastacio Simeon">
+      histrix.dev@gmail.com
+  </a>
+  <ContactNavigation />
 </section>
+<style>
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    background-color: rgba(46, 194, 179, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    height: 30rem;
+    max-height: 40rem;
+  }
+
+  .contact h2 {
+    text-wrap: pretty;
+    text-align: center;
+  }
+
+  .contact > a {
+    font-size: clamp(var(--text-md), 4vw, var(--text-xl));
+    font-weight: 600;
+    color: var(--light-green);
+    text-decoration: underline;
+    text-underline-offset: 1rem;
+    text-decoration-thickness: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .contact > a:hover {
+    color: rgba(253, 255, 252, 0.8);
+    transform: scale(1.05);
+    text-underline-offset: 0.5rem;
+  }
+</style>

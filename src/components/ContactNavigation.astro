@@ -1,25 +1,16 @@
 ---
 import Link from './Link.astro';
-import Email from './icons/Email.astro';
-import Messenger from './icons/Messenger.astro';
-import WhatsApp from './icons/WhatsApp.astro';
+import Messenger from '../icons/Messenger.astro';
+import WhatsApp from '../icons/WhatsApp.astro';
 ---
 
 <nav>
   <Link
     href="#"
     target="_blank"
-    title="efren.anastacio@ymail.com"
-    rel="noopener noreferrer"
-  >
-    <Email />
-    efren.anastacio@ymail.com
-  </Link>
-  <Link
-    href="#"
-    target="_blank"
     title="WhatApp llamada o mensaje"
     rel="noopener noreferrer"
+    isGreen
   >
     <WhatsApp />
     +52 442-129-1550
@@ -29,8 +20,18 @@ import WhatsApp from './icons/WhatsApp.astro';
     target="_blank"
     title="@efren.anastaciosimeon"
     rel="noopener noreferrer"
+    isGreen
   >
     <Messenger />
     efren.anastaciosimeon
   </Link>
 </nav>
+<style>
+  nav {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+</style>
