@@ -1,0 +1,124 @@
+---
+  import Pill from "./Pill.astro"
+  import Link from "./Link.astro";
+  import { type CollectionEntry } from "astro:content";
+
+  interface Props {
+    work: CollectionEntry<'work'>;
+  }
+
+  const { work } = Astro.props;
+  const { company, role, date, tags } = work.data;
+  const {Content} = await work.render()
+---
+<article class="work__card">
+  <div class="work__header">
+    <h4 class="work__header-text">
+      <time datetime={date}>{date}</time>
+      •
+      <span>{company}</span>
+    </h4>
+    <h3 class="work__role">{role}</h3>
+  </div>
+  <div class="work__body">
+    <p class="work__tags">
+      {
+        tags.map((tag: string, index: number) => {
+          return (
+            <>
+              <Pill text={tag}/> {index < tags.length - 1 && '•'}
+            </>
+          )
+        })
+      }
+    </p>
+    <div class="work__description truncate_text">
+      <Content />
+    </div>
+  </div>
+  <div class="work__footer">
+    <Link href={work.data.link} target="_blank" rel="noopener noreferrer" title="Link to work" isWhite isBordered>...Ver más</Link>
+  </div>
+</article>
+<style>
+  .work__card:nth-child(even) {
+    margin-left: auto;
+  }
+
+  .work__card:nth-child(odd) {
+    margin-right: auto;
+  }
+
+  .work__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    padding: 2rem;
+    transition: filter 0.3s ease-in-out;
+    width: 100%;
+  }
+
+  .truncate_text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  .work__card:hover .work__header-text,
+  .work__card:hover .work__role,
+  .work__card:hover .work__tags,
+  .work__card:hover .work__description
+  {
+    filter: opacity(100%);
+  }
+  
+  .work__header{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .work__header-text {
+    font-size: clamp(var(--text-md), 4vw, var(--text-xl));
+    font-weight: 700;
+    filter: opacity(55%);
+  }
+  
+  .work__role {
+    font-size: clamp(3rem, 5vw, 7rem);
+    font-weight: 700;
+    filter: opacity(85%);
+    color: var(--orange-color);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+  }
+  
+  .work__tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    font-size: clamp(var(--text-md), 2vw, var(--text-normal));
+    filter: opacity(55%);
+    margin-top: 1rem;
+  }
+  
+  .work__description {
+    font-size: var(--text-md);
+    filter: opacity(55%);
+    margin-top: 2rem;
+    text-wrap: pretty;
+  }
+
+  .work__description p{
+    margin-block: 1lh;
+  }
+
+  .work__footer {
+    width: 100%;
+    padding-top: 2rem;
+    cursor: pointer;
+  }
+</style>

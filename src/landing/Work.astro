@@ -1,5 +1,10 @@
 ---
-import WorkCard from '../components/WokrCard.astro';
+import WorkCard from '../components/WorkCard.astro';
+
+import { getCollection } from 'astro:content';
+
+const works = await getCollection('work')
+console.log(works)
 ---
 
 <section id="work" class="section-padding">
@@ -7,9 +12,14 @@ import WorkCard from '../components/WokrCard.astro';
     Grandes sueños, enormes experiencias <span>🤓</span>
   </h2>
   <section class="work__container">
-    <WorkCard />
-    <WorkCard />
-    <WorkCard />
+    {
+      works.map((work) => (
+        <WorkCard
+          work={work}
+        />
+
+      ))
+    }
   </section>
 </section>
 <style>
@@ -18,6 +28,6 @@ import WorkCard from '../components/WokrCard.astro';
     flex-direction: column;
     gap: 7rem;
     justify-content: center;
-    margin: 4rem 0;
+    margin: 8rem 0;
   }
 </style>

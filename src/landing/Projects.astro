@@ -24,12 +24,10 @@ const projects = await getCollection('project');
         />
       ))
     }
-
     <a href="https://github.com/EfrenAS" target="_blank" class="projects-link" rel="noopener noreferrer">
       <Github />
       <span>Ver más proyectos</span>
     </a>
-
   </section>
 </section>
 <style>
@@ -40,6 +38,7 @@ const projects = await getCollection('project');
     gap: 6rem;
     align-items: center;
     padding: 4rem 2rem;
+    margin: 4rem 0;
   }
 
   .projects-link {
@@ -78,5 +77,4 @@ const projects = await getCollection('project');
       background: linear-gradient(0deg, var(--light-green) 100%, var(--dark-green) 0%);
     }
   }
-
 </style>
