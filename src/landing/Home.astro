@@ -1,67 +1,63 @@
 ---
 import Link from '../components/Link.astro';
+import FrontendSkills from '../components/FrontendSkills.astro';
+import BackendSkills from '../components/BackendSkills.astro';
+import OthersSkills from '../components/OthersSkills.astro';
 ---
 
 <main id="Home" class="home">
+  <div class="links-container">
     <Link
       isButton
-      isBold
-      isGreen
       isSmokedGreen
-      pushedRight
+      isGreen
+      isBold
       shadowEffect
       target="_blank"
-      href="https://www.linkedin.com/in/efren-anastacio"
-      title="Link hacia el perfil de LinkedIn de Efren Anastacio"
+      href="https://drive.google.com/file/d/1pHBdOVmlMn6MmO_VzrRfm4-OxCpkd476/view?usp=drive_link"
+      title="Descargar Resumen"
     >
-      Disponible para trabajo
-      <span class="emoji">👋🏽</span>
+      Resumen
+      <span class="emoji"> ✍🏽 </span>
     </Link>
-    <div class="hero">
-      <p class="hello-text">Hola, soy</p>
-      <h1 class="my-name">Efrén Anastacio.</h1>
-      <h2 class="profession">Desarrollador <span>Full Stack.</span></h2>
-      <p class="experience-text">
-        Con 2 años de experiencia en la
-        creación de sitios y aplicaciones dinámicas y responsivas, mi enfoque se
-        centra en combinar un diseño atractivo con una funcionalidad robusta,
-        utilizando tecnologías modernas como <span class="text-green">
-          <strong> HTML5</strong></span
-        >, <span class="text-green"> <strong>CSS3</strong> </span>, <span
-          class="text-green"
-        >
-          <strong> JavaScript</strong></span
-        > y frameworks como <span class="text-green">
-          <strong> React</strong></span
-        >.
-      </p>
-    </div>
-    <div class="links-container">
-      <Link
+    <Link
+        isButton
+        isBold
+        isGreen
+        isSmokedGreen
+        shadowEffect
         target="_blank"
         href="mailto: histrix.dev@gmail.com?subject=Hola%20Efren%20me%20encantaria%20integrarte%20a%20mi%20equipo."
         title="Correo personal de Efren de Anastacio Simeon"
-        isBold
-        isBordered
-        isWhite
       >
-        histrix.dev@gmail.com
+        Disponible para trabajo
+        <span class="emoji">👋🏽</span>
       </Link>
-
-      <Link
-        isButton
-        isSmokedGreen
-        isGreen
-        isBold
-        shadowEffect
-        target="_blank"
-        href="https://drive.google.com/file/d/1pHBdOVmlMn6MmO_VzrRfm4-OxCpkd476/view?usp=drive_link"
-        title="Descargar Resumen"
+  </div>
+  <div class="hero">
+    <p class="hello-text">Hola, soy</p>
+    <h1 class="my-name">Efrén Anastacio.</h1>
+    <h2 class="profession">Desarrollador <span>Full Stack.</span></h2>
+    <p class="experience-text">
+      Con 2 años de experiencia en la
+      creación de sitios y aplicaciones dinámicas y responsivas, mi enfoque se
+      centra en combinar un diseño atractivo con una funcionalidad robusta,
+      utilizando tecnologías modernas como <span class="text-green">
+        <strong> HTML5</strong></span
+      >, <span class="text-green"> <strong>CSS3</strong> </span>, <span
+        class="text-green"
       >
-        Resumen
-        <span class="emoji"> ✍🏽 </span>
-      </Link>
-    </div>
+        <strong> JavaScript</strong></span
+      > y frameworks como <span class="text-green">
+        <strong> React</strong></span
+      >.
+    </p>
+  </div>
+  <section class="skills-section">
+    <FrontendSkills/>
+    <BackendSkills/>
+    <OthersSkills/>
+  </section>
 </main>
 
 <style>
@@ -71,7 +67,7 @@ import Link from '../components/Link.astro';
     flex-direction: column;
     justify-content: space-around;
     gap: 2rem;
-    height: 100vh;
+    height:  calc(100vh - 4rem);
     padding: 2rem;
   }
 
@@ -98,19 +94,11 @@ import Link from '../components/Link.astro';
 
   .links-container {
     display: flex;
-    gap: 4rem;
+    gap: 2rem;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 4rem;
+    flex-wrap: wrap;
+    align-items: flex-end;
     width: 100%;
-  }
-
-  @media (min-width: 480px) {
-    .links-container {
-      flex-direction: row;
-      justify-content: end;
-    }
   }
 
   .hero {
@@ -122,5 +110,12 @@ import Link from '../components/Link.astro';
   .emoji {
     padding-left: 0.5rem;
     font-size: var(--text-large);
+  }
+
+  .skills-section {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 </style>
