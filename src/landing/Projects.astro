@@ -1,15 +1,13 @@
 ---
 import ProjectCard from '../components/ProjectCard.astro';
 import { getCollection } from 'astro:content';
-import Github from '../icons/Github.astro';
-
+import SectionTitle from '../components/SectionTitle.astro';
+import Link from '../components/Link.astro';
 const projects = await getCollection('project');
 ---
 
-<section id="projects" class="project__section">
-  <h2 class="title-lg text-green brightness-100 text-center">
-    Proyectos destacados <span>✨</span>
-  </h2>
+<section id="projects" class="section-padding">
+  <SectionTitle text="✨ Proyectos destacados"/>
   <section class="projects__container">
     {
       projects.map(({ data }) => (
@@ -24,10 +22,19 @@ const projects = await getCollection('project');
         />
       ))
     }
-    <a href="https://github.com/EfrenAS" target="_blank" class="projects-link" rel="noopener noreferrer">
-      <Github />
-      <span>Ver más proyectos</span>
-    </a>
+    <Link
+      isButton
+      isSmokedGreen
+      isGreen
+      isBold
+      shadowEffect
+      target="_blank"
+      href="https://github.com/EfrenAS/"
+      title="Link to GitHub profile EfrenAS"
+    >
+    Ver más proyectos
+    <span class="emoji"> 📦 </span>
+  </Link>
   </section>
 </section>
 <style>
@@ -37,8 +44,7 @@ const projects = await getCollection('project');
     flex-direction: column;
     gap: 6rem;
     align-items: center;
-    padding: 4rem 2rem;
-    margin: 4rem 0;
+    margin-top: 6rem;
   }
 
   .projects-link {
@@ -58,7 +64,6 @@ const projects = await getCollection('project');
     background: linear-gradient(0deg, var(--light-green) 100%, var(--dark-green) 0%);
     color: var(--dark-color);
   }
-
 
   @keyframes fill-bottom-top {
     0% {

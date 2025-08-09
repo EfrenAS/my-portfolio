@@ -1,5 +1,7 @@
 ---
 interface Props {
+  title: string;
+  href: string;
   isBold?: boolean;
   isButton?: boolean;
   isBordered?: boolean;
@@ -8,11 +10,10 @@ interface Props {
   isSmokedGreen?: boolean;
   isWhite?: boolean;
   shadowEffect?: boolean;
-  href: string;
+  largeLink?: boolean;
   pushedRight?: boolean;
   rel?: string;
   target?: string;
-  title: string;
 }
 
 const {

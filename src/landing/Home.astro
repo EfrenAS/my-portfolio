@@ -5,7 +5,7 @@ import BackendSkills from '../components/BackendSkills.astro';
 import OthersSkills from '../components/OthersSkills.astro';
 ---
 
-<main id="Home" class="home">
+<main id="Home" class="home section-padding">
   <div class="links-container">
     <Link
       isButton
@@ -68,7 +68,6 @@ import OthersSkills from '../components/OthersSkills.astro';
     justify-content: space-around;
     gap: 2rem;
     height:  calc(100vh - 4rem);
-    padding: 2rem;
   }
 
   .hello-text {
@@ -79,9 +78,15 @@ import OthersSkills from '../components/OthersSkills.astro';
 
   .my-name {
     font-size: clamp(5rem, 19vw, 12rem);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+  }
+
+  .profession{
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
   }
 
   .profession span {
+    font-family: var(--font-titles);
     color: var(--orange-color);
   }
 

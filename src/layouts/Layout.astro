@@ -140,7 +140,13 @@ const { title } = Astro.props;
   /** GLOBAL STYLES **/
 
   .section-padding {
-    padding: 4rem 2rem;
+    padding: 4rem 1rem;
+  }
+
+  @media(min-width: 1200px) {
+    .section-padding {
+      padding: 4rem 0;
+    }
   }
 
   /** Size Font **/
@@ -171,15 +177,37 @@ const { title } = Astro.props;
     text-align: center;
   }
 
+  .bg_dark {
+    background-color: var(--dark-color);
+  }
+  
+  .p-1 {
+    padding: 0.5rem;
+  }
+
+  .rounded {
+    border-radius: 0.5rem;
+  }
+
   .skill {
-    filter: opacity(30%) grayscale(70%);
+    filter: opacity(50%) grayscale(90%);
     height: clamp(3rem, 10vw, 6rem);
     width: clamp(3rem, 10vw, 6rem);
     transition: all 0.3s ease-in-out;
   }
 
-  .skill:hover {
-    filter: opacity(100%) grayscale(0%);
+  body.light__theme .skill {
+    filter: opacity(50%) grayscale(90%);
+  }
+
+  @media(prefers-color-scheme: dark) {
+    .skill {
+      filter: opacity(30%) grayscale(70%);
+    }
+  }
+
+  body.dark__theme .skill {
+    filter: opacity(30%) grayscale(70%);
   }
 
   /**** DARK THEME  ****/
