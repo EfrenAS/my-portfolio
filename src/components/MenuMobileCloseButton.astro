@@ -1,0 +1,89 @@
+---
+import CloseIcon from "../icons/CloseIcon.astro";
+import MinusIcon from "../icons/Minus.astro";
+---
+<button type="button" id="menu-mobile-closed-button" aria-label="Cerrar menú">
+  <span class="icon-container">
+    <CloseIcon class="icon close-icon" />
+    <MinusIcon class="icon minus-icon"/>
+  </span>
+</button>
+<style>
+  button {
+    position: absolute;
+    top: 2rem;
+    left: 25rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--dark-color);
+  }
+  
+  .icon-container {
+    position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+  
+  .close-icon {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .minus-icon {
+    transform: scale(0);
+    opacity: 0;
+  }
+  
+  button:hover .close-icon,
+  button:active .close-icon {
+    transform: scale(0);
+    opacity: 0;
+  }
+  
+  button:hover .minus-icon,
+  button:active .minus-icon {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  body.light__theme button {
+    color: var(--dark-color);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    button {
+      color: var(--white-color);
+    }
+  }
+  
+  body.dark__theme button {
+    color: var(--white-color);
+  }
+</style>
+<script>
+  const menuMobileClosedButton = document.querySelector("#menu-mobile-closed-button");
+
+  if (!menuMobileClosedButton) throw new Error("Menu mobile closed button not found");
+
+  const handleMenuMobileClosedButton = () => {
+    const navigation = document.querySelector("[aria-label='navigation']");
+
+    if (!navigation) throw new Error("Navigation not found");
+
+    navigation.classList.remove("show-on");
+  };
+
+  menuMobileClosedButton.addEventListener("click", handleMenuMobileClosedButton);
+</script>

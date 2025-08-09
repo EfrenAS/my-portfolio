@@ -41,15 +41,17 @@
   }
 </style>
 <script>
-  // function toggleMenuButton() {
-  //         const menuButton = document.querySelector(".menu-toggle");
-  //         const menu = document.querySelector(".menu");
+  const menuMobile = document.querySelector(".menu-mobile");
 
-  //         menuButton.addEventListener("click", (e) => {
-  //             e.target.closest(".menu-toggle").classList.toggle("change");
-  //             menu.classList.toggle("show-on");
-  //         });
-  //     }
+  if (!menuMobile) throw new Error("Menu mobile not found");
 
-  //     toggleMenuButton();
+  const handleMenuMobileClick = () => {
+    const navigation = document.querySelector("[aria-label='navigation']");
+
+    if (!navigation) throw new Error("Navigation not found");
+
+    navigation.classList.toggle("show-on");
+  };
+
+  menuMobile.addEventListener("click", handleMenuMobileClick);
 </script>

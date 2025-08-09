@@ -1,22 +1,60 @@
 ---
 import Link from './Link.astro';
+import MenuMobileCloseButton from './MenuMobileCloseButton.astro';
 ---
+<div aria-label="navigation" class="navigation">
+  <MenuMobileCloseButton />
+  <nav >
+    <Link href="#home" title="Inicio" isWhite isBordered mobileLink> Home </Link>
+    <Link href="#projects" title="Proyectos" isWhite isBordered mobileLink> Proyectos </Link>
+    <Link href="#work" title="Experiencia" isWhite isBordered mobileLink> Experiencia </Link>
+    <Link href="#contact" title="'Contacto" isWhite isBordered mobileLink> Contacto </Link>
+  </nav>
+</div>
 
-<nav>
-  <Link href="#home" title="Inicio" isWhite isBordered> Home </Link>
-  <Link href="#projects" title="Proyectos" isWhite isBordered> Proyectos </Link>
-  <Link href="#work" title="Experiencia" isWhite isBordered> Experiencia </Link>
-  <Link href="#contact" title="'Contacto" isWhite isBordered> Contacto </Link>
-</nav>
 <style>
-  nav {
+  .navigation {
     display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+    background-color: rgba(2, 22, 39, 50%);
+  }
+  
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 4rem 2rem;
+    width: 30rem;
+    height: 100%;
+    background-color: var(--white-color);
+  }
+  
+  body.light__theme .navigation>nav {
+    background-color: var(--white-color);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .navigation>nav {
+      background-color: var(--dark-color);
+    }
+  }
+
+  body.dark__theme .navigation>nav {
+    background-color: var(--dark-color);
+  }
+
+  .mobile-link {
+   font-size: 3rem; 
   }
 
   /**** Media Queries ****/
   @media (min-width: 600px) {
     nav {
-      display: flex;
       gap: 3rem;
     }
   }
@@ -51,5 +89,9 @@ import Link from './Link.astro';
     to {
       transform: scale(1);
     }
+  }
+
+  .show-on {
+    display: block;
   }
 </style>

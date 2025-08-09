@@ -14,6 +14,7 @@ interface Props {
   pushedRight?: boolean;
   rel?: string;
   target?: string;
+  mobileLink?: boolean;
 }
 
 const {
@@ -29,6 +30,7 @@ const {
   isOrange,
   isSmokedGreen,
   shadowEffect,
+  mobileLink,
 } = Astro.props;
 ---
 
@@ -44,6 +46,7 @@ const {
       'smoked-green': isSmokedGreen,
       white: isWhite,
       'shadow-effect': shadowEffect,
+      'mobile-link': mobileLink,
     },
   ]}
   target={target}
@@ -59,6 +62,16 @@ const {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+  }
+
+  .mobile-link {
+    font-size: 3rem;
+  }
+
+  @media (min-width: 600px) {
+    .mobile-link {
+      font-size: var(--text-normal);
+    }
   }
 
   .button,
@@ -91,12 +104,14 @@ const {
     transition: all 0.3s ease;
   }
 
-  .green:hover {
+  .green:hover,
+  .green:active {
     color: var(--dark-green);
     transform: scale(1.1);
   }
 
-  .shadow-effect:hover {
+  .shadow-effect:hover,
+  .shadow-effect:active {
     box-shadow: 3px 3px 0 0 var(--dark-green);
   }
 
@@ -112,7 +127,8 @@ const {
     transition: all 0.4s ease-out;
   }
 
-  .link-bordered:hover::after {
+  .link-bordered:hover::after,
+  .link-bordered:active::after {
     background-color: var(--dark-green);
   }
 
@@ -121,11 +137,13 @@ const {
       color: rgba(46, 196, 182, 80%);
     }
 
-    .green:hover {
+    .green:hover,
+    .green:active {
       color: var(--light-green);
     }
 
-    .shadow-effect:hover {
+    .shadow-effect:hover,
+    .shadow-effect:active {
       box-shadow: 3px 3px 0 0 var(--light-green);
     }
 
@@ -137,7 +155,8 @@ const {
       background-color: rgba(46, 196, 182, 80%);
     }
 
-    .link-bordered:hover::after {
+    .link-bordered:hover::after,
+    .link-bordered:active::after {
       width: 100%;
       background-color: var(--light-green);
     }
@@ -146,11 +165,13 @@ const {
       color: rgba(25, 97, 90, 80%);
     }
 
-    body.light__theme .green:hover {
+    body.light__theme .green:hover,
+    body.light__theme .green:active {
       color: var(--dark-green);
     }
 
-    body.light__theme .shadow-effect:hover {
+    body.light__theme .shadow-effect:hover,
+    body.light__theme .shadow-effect:active {
       box-shadow: 3px 3px 0 0 var(--dark-green);
     }
 
@@ -158,7 +179,8 @@ const {
       background-color: rgba(25, 97, 90, 80%);
     }
 
-    body.light_theme .link-bordered:hover::after {
+    body.light__theme .link-bordered:hover::after,
+    body.light__theme .link-bordered:active::after {
       background-color: var(--dark-green);
     }
   }
