@@ -1,54 +1,98 @@
-# Astro Starter Kit: Basics
+# Portafolio Personal - Efrén Anastacio Simeon
 
-```sh
-npm create astro@latest -- --template basics
+[![Astro](https://img.shields.io/badge/Astro-4.8.6-FF5D01.svg?logo=astro)](https://astro.build/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.4.5-3178C6.svg?logo=typescript)](https://www.typescriptlang.org/)
+[![Licencia](https://img.shields.io/badge/Licencia-MIT-blue.svg)](LICENSE)
+
+Bienvenido a mi portafolio personal desarrollado con Astro. Este proyecto muestra mis habilidades, proyectos y experiencia en desarrollo web.
+
+## 🚀 Características
+
+- 🎨 Diseño moderno y responsivo
+- ⚡ Rendimiento optimizado con Astro
+- 🔍 Optimización SEO integrada
+- 🌐 Compatibilidad con múltiples navegadores
+- 📱 Diseño adaptable a dispositivos móviles
+- 🎨 Soporte para temas claro/oscuro
+
+## 🛠️ Tecnologías Utilizadas
+
+- [Astro](https://astro.build/) - El framework web para crear sitios rápidos
+- [TypeScript](https://www.typescriptlang.org/) - Tipado estático para JavaScript
+- [Astro Icons](https://www.npmjs.com/package/astro-icon) - Para el manejo de iconos
+- [Google Fonts](https://fonts.google.com/) - Fuentes personalizadas (Mulish y Philosopher)
+
+## 📦 Requisitos Previos
+
+- Node.js 18.14.1 o superior
+- npm 9.5.0 o superior
+- Git (opcional, para control de versiones)
+
+## 🚀 Cómo Empezar
+
+### Clonar el Repositorio
+
+```bash
+git clone https://github.com/EfrenAS/my-portfolio.git
+cd my-portfolio
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+### Instalar Dependencias
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+```bash
+npm install
+```
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+### Comandos Disponibles
 
-## 🚀 Project Structure
+| Comando           | Acción                                               |
+| ----------------- | ---------------------------------------------------- |
+| `npm run dev`     | Inicia el servidor de desarrollo en `localhost:4321` |
+| `npm run build`   | Construye la versión de producción en `./dist/`      |
+| `npm run preview` | Previsualiza la versión de producción localmente     |
+| `npm run check`   | Verifica los tipos de TypeScript                     |
 
-Inside of your Astro project, you'll see the following folders and files:
+## 🏗️ Estructura del Proyecto
 
-```text
+```
 /
-├── public/
-│   └── favicon.svg
+├── public/             # Archivos estáticos (imágenes, favicon, etc.)
 ├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+├── |-- assets/         # Archivos estáticos (imágenes, favicon, etc.)
+├── |-- components/     # Componentes reutilizables
+├── |-- content/        # Contenido del sitio
+├── |-- icons/          # Iconos
+├── |-- layout/         # Plantillas de diseño
+├── |-- landing/        # Landing pages
+├── |-- pages/          # Páginas del sitio
+├── |-- styles/         # Estilos globales
+├── .gitignore          # Archivos ignorados por Git
+├── astro.config.mjs    # Configuración de Astro
+├── package.json        # Dependencias y scripts
+└── tsconfig.json       # Configuración de TypeScript
+└── LICENSE             # Archivo de licencia
+└── README.md           # Documentación del proyecto
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🌐 Despliegue
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+### Construir para Producción
 
-Any static assets, like images, can be placed in the `public/` directory.
+```bash
+npm run build
+```
 
-## 🧞 Commands
+Esto generará una versión optimizada en la carpeta `dist/` lista para desplegar en cualquier servicio de hosting estático.
 
-All commands are run from the root of the project, from a terminal:
+### Servicios de Despliegue Recomendados
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- [Netlify](https://www.netlify.com/)
 
-## 👀 Want to learn more?
+## 📝 Licencia
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más información.
+
+## 📧 Contacto
+
+- 📧 Email: histrix.dev@gmail.com
+- 💼 LinkedIn: [Efren Anastacio Simeon](https://linkedin.com/in/efren-anastacio)

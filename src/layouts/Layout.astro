@@ -9,14 +9,42 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    
+    <!-- Meta Tags Primarios -->
+    <title>{title} | Portafolio de Efren</title>
+    <meta name="title" content={`${title} | Portafolio de Efren`} />
+    <meta name="description" content="Portafolio profesional que muestra mis proyectos, habilidades y experiencia en desarrollo web." />
+    <meta name="keywords" content="portafolio, desarrollo web, frontend, backend, fullstack, programación, proyectos, desarrollador" />
+    <meta name="author" content="Efren Anastacio Simeon" />
+    <meta name="copyright" content="© 2024 Efren Anastacio Simeon. Todos los derechos reservados." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={Astro.url.href} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="sitio web" />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:title" content={`${title} | Portafolio de Efren`} />
+    <meta property="og:description" content="Portafolio profesional que muestra mis proyectos, habilidades y experiencia en desarrollo web" />
+    <meta property="og:image" content="/images/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url.href} />
+    <meta property="twitter:title" content={`${title} | Portafolio de Efren`} />
+    <meta property="twitter:description" content="Portafolio profesional que muestra mis proyectos, habilidades y experiencia en desarrollo web." />
+    <meta property="twitter:image" content="/images/og-image.jpg" />
+
+    <!-- Favicon y Tema -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#1a1a1a" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    
+    <!-- Adicionales -->
+    <meta name="format-detection" content="telephone=no" />
   </head>
   <body>
     <slot />

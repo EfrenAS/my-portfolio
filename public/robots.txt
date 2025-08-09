@@ -1,0 +1,54 @@
+# Archivo robots.txt para el Portafolio de Efrén
+# Permite el rastreo de todo el sitio
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://tu-dominio.com/sitemap.xml
+
+# Deshabilitar el rastreo de archivos específicos
+Disallow: /admin/
+Disallow: /api/
+Disallow: /pruebas/
+
+# Configuración para Googlebot
+User-agent: Googlebot
+Allow: /
+Disallow: /private/
+
+# Velocidad de rastreo (opcional)
+# Los motores de búsqueda pueden ignorar esta directiva
+# Crawl-delay: 10
+
+# Configuración para otros bots conocidos
+User-agent: bingbot
+Allow: /
+Disallow: /private/
+
+# No permitir el rastreo de archivos de código
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /*.php$
+
+# No permitir el rastreo de archivos de sistema
+Disallow: /.*?$
+Disallow: /*.json$
+Disallow: /*.xml$
+
+# Permitir rastreo de imágenes
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.webp$
+
+# Configuración para dispositivos móviles
+User-agent: Googlebot-Mobile
+Allow: /
+
+# Host preferido (reemplaza con tu dominio)
+# Host: www.tudominio.com
+
+# Nota: Recuerda reemplazar 'https://tu-dominio.com/sitemap.xml' con la URL real de tu sitemap
+# cuando lo implementes en producción.
