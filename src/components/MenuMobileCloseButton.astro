@@ -12,7 +12,7 @@ import MinusIcon from "../icons/Minus.astro";
   button {
     position: fixed;
     top: 2rem;
-    left: 25rem;
+    left: 27rem;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -72,15 +72,16 @@ import MinusIcon from "../icons/Minus.astro";
   }
 </style>
 <script>
-  const menuMobileClosedButton = document.querySelector("#menu-mobile-closed-button")
+  import { getHtmlElement } from "../scripts/getHtmlElement";
 
-  if (!menuMobileClosedButton) throw new Error("Menu mobile closed button not found")
+  const menuMobileClosedButton = getHtmlElement({element: "#menu-mobile-closed-button"})
 
   const handleOnClick = () => {
-    const navigationMobile = document.querySelector(".navigation")
+    const navigationMobile = getHtmlElement({element: ".navigation"})
+    const bodyPage = getHtmlElement({element: "body"})
 
-    if (!navigationMobile) throw new Error("Navigation mobile not found")
     navigationMobile.classList.toggle("show-on")
+    bodyPage.classList.toggle("overflow-hidden")
   }
 
   menuMobileClosedButton.addEventListener("click", handleOnClick)

@@ -52,3 +52,19 @@ import { NAV_LINKS } from '../config/links';
     font-size: 3rem;
   }
 </style>
+<script>
+
+  import { getHtmlElement, getAllHtmlElements } from "../scripts/getHtmlElement";
+
+  const navigationMobile = getHtmlElement({element: ".navigation"});
+  const bodyPage = getHtmlElement({element: "body"});
+
+  const linksNavMobile = getAllHtmlElements({element: ".mobile-link"});
+
+  const handleOnLinksMobileClick = () => {
+    navigationMobile.classList.toggle("show-on");
+    bodyPage.classList.toggle("overflow-hidden");
+  };
+
+  linksNavMobile.forEach(link => link.addEventListener("click", handleOnLinksMobileClick))
+</script>

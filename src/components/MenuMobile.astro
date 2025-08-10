@@ -47,15 +47,15 @@ import MenuLeft from "../icons/MenuLeft.astro";
 
 </style>
 <script>
-  const menuMobile = document.querySelector(".menu-mobile");
+  import { getHtmlElement } from "../scripts/getHtmlElement";
 
-  if (!menuMobile) throw new Error("Menu mobile not found");
+  const menuMobile = getHtmlElement({element: ".menu-mobile"});
+  const bodyPage = getHtmlElement({element: "body"});
 
   const handleOnMenuMobileClick = () => {
-    const navigation = document.querySelector("[aria-label='navigation']");
-
-    if (!navigation) throw new Error("Navigation not found");
+    const navigation = getHtmlElement({element: "[aria-label='navigation']"});
     navigation.classList.toggle("show-on");
+    bodyPage.classList.toggle("overflow-hidden");
   };
 
   menuMobile.addEventListener("click", handleOnMenuMobileClick);
