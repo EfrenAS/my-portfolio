@@ -10,13 +10,12 @@ import MinusIcon from "../icons/Minus.astro";
 </button>
 <style>
   button {
-    position: absolute;
+    position: fixed;
     top: 2rem;
     left: 25rem;
     background-color: transparent;
     border: none;
     cursor: pointer;
-    padding: 0.5rem;
     color: var(--dark-color);
   }
   
@@ -73,17 +72,16 @@ import MinusIcon from "../icons/Minus.astro";
   }
 </style>
 <script>
-  const menuMobileClosedButton = document.querySelector("#menu-mobile-closed-button");
+  const menuMobileClosedButton = document.querySelector("#menu-mobile-closed-button")
 
-  if (!menuMobileClosedButton) throw new Error("Menu mobile closed button not found");
+  if (!menuMobileClosedButton) throw new Error("Menu mobile closed button not found")
 
-  const handleMenuMobileClosedButton = () => {
-    const navigation = document.querySelector("[aria-label='navigation']");
+  const handleOnClick = () => {
+    const navigationMobile = document.querySelector(".navigation")
 
-    if (!navigation) throw new Error("Navigation not found");
+    if (!navigationMobile) throw new Error("Navigation mobile not found")
+    navigationMobile.classList.toggle("show-on")
+  }
 
-    navigation.classList.remove("show-on");
-  };
-
-  menuMobileClosedButton.addEventListener("click", handleMenuMobileClosedButton);
+  menuMobileClosedButton.addEventListener("click", handleOnClick)
 </script>

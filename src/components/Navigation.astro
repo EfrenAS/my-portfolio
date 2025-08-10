@@ -4,7 +4,7 @@ import MenuMobileCloseButton from './MenuMobileCloseButton.astro';
 ---
 <div aria-label="navigation" class="navigation">
   <MenuMobileCloseButton />
-  <nav >
+  <nav class="navbar">
     <Link href="#home" title="Inicio" isWhite isBordered mobileLink> Home </Link>
     <Link href="#projects" title="Proyectos" isWhite isBordered mobileLink> Proyectos </Link>
     <Link href="#work" title="Experiencia" isWhite isBordered mobileLink> Experiencia </Link>
@@ -15,9 +15,9 @@ import MenuMobileCloseButton from './MenuMobileCloseButton.astro';
 <style>
   .navigation {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
     width: 100%;
     height: 100vh;
     z-index: 100;
@@ -29,9 +29,37 @@ import MenuMobileCloseButton from './MenuMobileCloseButton.astro';
     flex-direction: column;
     gap: 3rem;
     padding: 4rem 2rem;
-    width: 30rem;
+    width: 100%;
+    max-width: 32rem;
     height: 100%;
     background-color: var(--white-color);
+  }
+
+  .show-on {
+    display: block;
+    animation: slideIn 0.5s ease-in-out forwards;
+  }
+
+  @keyframes slideIn {
+    from { 
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to { 
+      transform: translateX(0); 
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideOut {
+    from { 
+      transform: translateX(100%);
+      opacity: 1;
+    }
+    to { 
+      transform: translateX(0);
+      opacity: 0;
+    }
   }
   
   body.light__theme .navigation>nav {
@@ -57,41 +85,5 @@ import MenuMobileCloseButton from './MenuMobileCloseButton.astro';
     nav {
       gap: 3rem;
     }
-  }
-
-  nav .white {
-    color: var(--black-color);
-  }
-
-  /**** Dark Mode ****/
-  @media (prefers-color-scheme: dark) {
-    nav .white {
-      color: var(--white-color);
-    }
-  }
-
-  /**** Light Mode ****/
-  @media (prefers-color-scheme: light) {
-    nav .white {
-      color: var(--black-color);
-    }
-  }
-
-  nav .white {
-    color: var(--black-color);
-  }
-
-  @keyframes selected-ancle {
-    from {
-      transform: scale(0);
-    }
-
-    to {
-      transform: scale(1);
-    }
-  }
-
-  .show-on {
-    display: block;
   }
 </style>
