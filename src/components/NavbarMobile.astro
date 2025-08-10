@@ -1,0 +1,54 @@
+---
+import Link from './Link.astro';
+import { NAV_LINKS } from '../config/links';
+---
+
+<nav class="mobile-nav">
+  {NAV_LINKS.map(link => (
+    <Link 
+      href={link.href} 
+      title={link.title} 
+      isWhite 
+      isBordered 
+      mobileLink
+    >
+      {link.text}
+    </Link>
+  ))}
+</nav>
+
+<style>
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    max-width: 32rem;
+    padding: 4rem 2rem;
+    height: 100%;
+    width: 100%;
+  }
+
+  @media (min-width: 600px) {
+    .mobile-nav {
+      display: none;
+    }
+  }
+
+  body.light__theme .mobile-nav {
+    background-color: var(--white-color);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .mobile-nav {
+      background-color: var(--dark-color);
+    }
+  }
+
+  body.dark__theme .mobile-nav {
+    background-color: var(--dark-color);
+  }
+
+  .mobile-link {
+    font-size: 3rem;
+  }
+</style>

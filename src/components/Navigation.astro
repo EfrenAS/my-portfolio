@@ -1,15 +1,10 @@
 ---
-import Link from './Link.astro';
 import MenuMobileCloseButton from './MenuMobileCloseButton.astro';
+import Navbar from './Navbar.astro';
 ---
 <div aria-label="navigation" class="navigation">
   <MenuMobileCloseButton />
-  <nav class="navbar">
-    <Link href="#home" title="Inicio" isWhite isBordered mobileLink> Home </Link>
-    <Link href="#projects" title="Proyectos" isWhite isBordered mobileLink> Proyectos </Link>
-    <Link href="#work" title="Experiencia" isWhite isBordered mobileLink> Experiencia </Link>
-    <Link href="#contact" title="'Contacto" isWhite isBordered mobileLink> Contacto </Link>
-  </nav>
+  <Navbar mobileNavbar/>
 </div>
 
 <style>
@@ -24,15 +19,10 @@ import MenuMobileCloseButton from './MenuMobileCloseButton.astro';
     background-color: rgba(2, 22, 39, 50%);
   }
   
-  nav {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    padding: 4rem 2rem;
-    width: 100%;
-    max-width: 32rem;
-    height: 100%;
-    background-color: var(--white-color);
+  @media (min-width: 600px) {
+    .navigation {
+      display: none;
+    }
   }
 
   .show-on {
@@ -59,31 +49,6 @@ import MenuMobileCloseButton from './MenuMobileCloseButton.astro';
     to { 
       transform: translateX(0);
       opacity: 0;
-    }
-  }
-  
-  body.light__theme .navigation>nav {
-    background-color: var(--white-color);
-  }
-  
-  @media (prefers-color-scheme: dark) {
-    .navigation>nav {
-      background-color: var(--dark-color);
-    }
-  }
-
-  body.dark__theme .navigation>nav {
-    background-color: var(--dark-color);
-  }
-
-  .mobile-link {
-   font-size: 3rem; 
-  }
-
-  /**** Media Queries ****/
-  @media (min-width: 600px) {
-    nav {
-      gap: 3rem;
     }
   }
 </style>

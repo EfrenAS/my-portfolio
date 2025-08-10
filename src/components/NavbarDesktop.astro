@@ -1,0 +1,30 @@
+---
+import Link from './Link.astro';
+import { NAV_LINKS } from '../config/links';
+---
+
+<nav class="desktop-nav">
+  {NAV_LINKS.map(link => (
+    <Link 
+      href={link.href} 
+      title={link.title} 
+      isWhite 
+      isBordered
+    >
+      {link.text}
+    </Link>
+  ))}
+</nav>
+
+<style>
+  .desktop-nav {
+    display: none;
+  }
+
+  @media (min-width: 600px) {
+    .desktop-nav {
+      display: flex;
+      gap: 3rem;
+    }
+  }
+</style>
