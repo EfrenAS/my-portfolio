@@ -1,6 +1,8 @@
 ---
 import Link from '../components/Link.astro';
-import SkillsCarousel from '../components/SkillsCarousel.astro';
+import FrontendSkills from '../components/FrontendSkills.astro';
+import BackendSkills from '../components/BackendSkills.astro';
+import OthersSkills from '../components/OthersSkills.astro';
 ---
 
 <main id="Home" class="home section-padding">
@@ -52,7 +54,9 @@ import SkillsCarousel from '../components/SkillsCarousel.astro';
     </p>
   </div>
   <section class="skills-section">
-    <SkillsCarousel />
+    <FrontendSkills />
+    <BackendSkills />
+    <OthersSkills />
   </section>
 </main>
 
@@ -83,7 +87,7 @@ import SkillsCarousel from '../components/SkillsCarousel.astro';
 
   .profession span {
     font-family: var(--font-titles);
-    color: var(--orange-color);
+    color: var(--accent-color);
   }
 
   .experience-text {

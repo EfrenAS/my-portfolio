@@ -12,7 +12,7 @@ import MenuLeft from "../icons/MenuLeft.astro";
     width: 4.5rem;
     height: 4.5rem;
     border: none;
-    color: var(--dark-green);
+    color: var(--secondary-color);
     transition: all 0.3s ease;
   }
   
@@ -22,16 +22,16 @@ import MenuLeft from "../icons/MenuLeft.astro";
   }
 
   body.light__theme .menu-mobile {
-    color: var(--dark-green);
+    color: var(--secondary-color);
   }
 
   @media (prefers-color-scheme: dark) {
     .menu-mobile {
-      color: var(--light-green);
+      color: var(--primary-color);
     }
   }
   body.dark__theme .menu-mobile {
-    color: var(--light-green);
+    color: var(--secondary-color);
   }
 
   .menu-icon {

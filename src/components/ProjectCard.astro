@@ -19,8 +19,8 @@ const { title, description, gitHubLink, liveLink, tags, image, imageAlt } =
     <p>
       {description}
     </p>
-    <div>
-      {tags.map((tag: string) => <Pill text={tag} isSmall isOrangeText />)}
+    <div class="tags">
+      {tags.map((tag: string) => <Pill text={tag} isSmall isOrangeText pillPrimary />)}
     </div>
     <div class="links">
       <Link
@@ -59,6 +59,12 @@ const { title, description, gitHubLink, liveLink, tags, image, imageAlt } =
   .project-card:hover img{
     filter: grayscale(0) brightness(1);
     
+  }
+
+  .tags {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
   }
   
   @media(min-width: 600px){
@@ -155,10 +161,27 @@ const { title, description, gitHubLink, liveLink, tags, image, imageAlt } =
     flex-direction: column;
     justify-content: space-between;
     gap: 2rem;
-    background-color: rgba(46, 196, 182, 10%);
+    background-color: rgba(251, 251, 255, 60%);
     backdrop-filter: blur(5px);
     padding: 1rem;
     border-radius: 0.5rem;
+  }
+  
+  body.light__theme .card-text {
+    background-color: rgba(251, 251, 255, 60%);
+  }
+  
+  .card-text h3 {
+      color: #2F2B63;
+      background-image: linear-gradient(0deg, #2F2B63 50%, #AFA6FF 100%);
+      background-clip: text; 
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; 
+  }
+
+  body.light__theme .card-text  h3{
+    color: #2F2B63;
+    background-image: linear-gradient(0deg, #2F2B63 50%, #AFA6FF 100%);
   }
 
   @media(min-width: 800px){
@@ -178,20 +201,30 @@ const { title, description, gitHubLink, liveLink, tags, image, imageAlt } =
 
   @media (prefers-color-scheme: dark) {
     .card-text {
-      background-color: rgba(2, 22, 39, 70%);
+      background-color: transparent;
+    }
+    
+    @media (min-width: 800px) { 
+      .card-text {
+        background-color: rgba(48, 43, 99, 70%);
+      }  
     }
 
-    body.light__theme .card-text {
-      background-color: rgba(253, 255, 252, 70%);
-      backdrop-filter: blur(200px);
+    .card-text h3 {  
+      color: #2F2B63; 
+      background-image: linear-gradient(0deg, #AFA6FF 50%, #2F2B63 100%); 
     }
   }
 
-  .card-text h3 {
-    background: linear-gradient(0deg, #2ec2b3, #196163);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  body.dark__theme .card-text {
+    background-color: rgba(48, 43, 99, 70%);
   }
+  
+  body.dark_theme .card-text h3{
+    color: #2F2B63; 
+    background-image: linear-gradient(0deg, #AFA6FF 50%, #2F2B63 100%); 
+  }
+
 
   .card-text p {
     font-size: var(--text-md);

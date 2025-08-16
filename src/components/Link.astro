@@ -90,35 +90,30 @@ const {
     padding: 1rem 0;
   }
 
-  .push-right {
-    margin-left: auto;
-  }
-
   .bold {
     font-weight: 600;
   }
 
   /* Light Theme */
   .green {
-    color: rgba(25, 97, 90, 80%);
+    color: var(--primary-color);
     transition: all 0.3s ease;
   }
 
   .green:hover,
   .green:active {
-    color: var(--dark-green);
     transform: scale(1.1);
   }
 
   .shadow-effect:hover,
   .shadow-effect:active {
-    box-shadow: 3px 3px 0 0 var(--dark-green);
+    box-shadow: 3px 3px 0 0 var(--secondar-color);
   }
 
   .link-bordered::after {
     content: ' ';
     position: absolute;
-    background-color: rgba(25, 97, 90, 80%);
+    background-color: var(--secondary-color);
     border-radius: 5px;
     bottom: 0;
     left: 0;
@@ -129,59 +124,67 @@ const {
 
   .link-bordered:hover::after,
   .link-bordered:active::after {
-    background-color: var(--dark-green);
+    background-color: var(--secondary-color);
+  }
+
+  body.light__theme .green {
+    color: var(--secondary-color);
+  }
+
+  body.light__theme .shadow-effect:hover,
+  body.light__theme .shadow-effect:active {
+    box-shadow: 3px 3px 0 0 var(--secondary-color);
+  }
+
+  body.light__theme .link-bordered::after {
+    background-color: var(--secondary-color);
+  }
+
+  body.light__theme .link-bordered:hover::after,
+  body.light__theme .link-bordered:active::after {
+    background-color: var(--secondary-color);
   }
 
   @media (prefers-color-scheme: dark) {
     .green {
-      color: rgba(46, 196, 182, 80%);
-    }
-
-    .green:hover,
-    .green:active {
-      color: var(--light-green);
+      color: var(--primary-color);
     }
 
     .shadow-effect:hover,
     .shadow-effect:active {
-      box-shadow: 3px 3px 0 0 var(--light-green);
+      box-shadow: 3px 3px 0 0 var(--primary-color);
     }
 
     .smoked-green {
-      background-color: rgba(46, 196, 182, 10%);
+      background-color: rgba(175, 166, 255, 30%);
     }
 
     .link-bordered::after {
-      background-color: rgba(46, 196, 182, 80%);
+      background-color: var(--primary-color);
     }
 
     .link-bordered:hover::after,
     .link-bordered:active::after {
       width: 100%;
-      background-color: var(--light-green);
+      background-color: var(--primary-color);
     }
+  }
 
-    body.light__theme .green {
-      color: rgba(25, 97, 90, 80%);
-    }
+  body.dark__theme .green {
+    color: var(--primary-color);
+  }
 
-    body.light__theme .green:hover,
-    body.light__theme .green:active {
-      color: var(--dark-green);
-    }
+  body.dark__theme .shadow-effect:hover,
+  body.dark__theme .shadow-effect:active {
+    box-shadow: 3px 3px 0 0 var(--primary-color);
+  }
 
-    body.light__theme .shadow-effect:hover,
-    body.light__theme .shadow-effect:active {
-      box-shadow: 3px 3px 0 0 var(--dark-green);
-    }
+  body.dark__theme .link-bordered::after {
+    background-color: var(--primary-color);
+  }
 
-    body.light__theme .link-bordered::after {
-      background-color: rgba(25, 97, 90, 80%);
-    }
-
-    body.light__theme .link-bordered:hover::after,
-    body.light__theme .link-bordered:active::after {
-      background-color: var(--dark-green);
-    }
+  body.dark__theme .link-bordered:hover::after,
+  body.dark__theme .link-bordered:active::after {
+    background-color: var(--primary-color);
   }
 </style>

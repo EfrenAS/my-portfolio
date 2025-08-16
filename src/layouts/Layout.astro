@@ -55,86 +55,106 @@ const { title } = Astro.props;
   @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Philosopher:wght@400;700&display=swap');
   :root {
     /* Main Colors for this project */
-    --baby-powder: rgb(253, 255, 252);
-    --rich-black: rgb(2, 22, 39);
-    --light-sea-green: rgb(46, 194, 179);
-    --caribbean-current: rgb(25, 97, 90);
-    --red-pantone: rgb(231, 29, 52);
-    --orange-peel: rgb(255, 159, 28);
-
-    --white-color: var(--baby-powder);
-    --dark-color: var(--rich-black);
-    --red-color: var(--red-pantone);
-    --orange-color: var(--orange-peel);
-
-    /*Dark Theme */
-    --light-green: var(--light-sea-green);
-
-    /* Light Theme */
-    --dark-green: var(--caribbean-current);
-
+    --oxford-blue: rgba(15, 12, 41, 100%);
+    --space-cadet: rgba(48, 43, 99, 100%);
+    --powder-blue: rgba(175, 166, 255, 100%);
+    --ghost-white: rgba(251, 251, 255, 100%);
+    --orange-peel: rgba(255, 159, 28, 100%);
+    
+    --light-color: var(--ghost-white);
+    --dark-color: var(--oxford-blue);
+    --accent-color: var(--orange-peel);
+    --primary-color: var(--powder-blue);
+    --secondary-color: var(--space-cadet);
+    
     /* Font Types */
     --font-titles: Philosopher, sans-serif;
     --font-texts: Mulish, sans-serif;
-
+    
     /* Text Size */
     --text-sm: 1.2rem;
     --text-md: 1.4rem;
     --text-normal: 1.6rem;
     --text-large: 2rem;
     --text-xl: 2.4rem;
-
+    
     /* Media Queries */
     --d-small: 480px;
     --d-medium: 900px;
     --d-large: 1024px;
     --d-xlarge: 1440px;
-
+    
     /* Scheme Color */
     color-scheme: light dark;
   }
-
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  
   html {
     box-sizing: border-box;
     font-size: 62.5%;
     scroll-behavior: smooth;
   }
-
+  
   body {
-    background-color: var(--white-color);
+    background-color: var(--light-color);
     background: radial-gradient(circle at top, #15534d 0%, #021627 70%);
     background-repeat: no-repeat;
     color: var(--dark-color);
     font-size: 1.6rem;
     height: 100vh;
   }
+  
+  body.light__theme {
+    background: none;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+  }
+  
+  body.light__theme .text-green {
+    color: var(--dark-green);
+  }
+  
+  .text-green {
+    color: var(--light-green);
+  }
 
+  /**** DARK THEME  ****/
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: #0f0c29;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background-repeat: repeat;
+      color: var(--white-color);
+    }
+  }
+  
   body.dark__theme {
-    background-color: var(--dark-color);
-    background: radial-gradient(circle at top, #15534d 0%, #021627 70%);
-    background-repeat: no-repeat;
-    color: var(--white-color);
+      background: #0f0c29;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background-repeat: repeat;
+      color: var(--white-color);
   }
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
-  }
-
+  
   a {
     cursor: pointer;
     text-decoration: none;
     font-family: var(--font-titles);
-    color: var(--white-color);
+    color: var(--light-color);
   }
 
   @media (prefers-color-scheme: dark) {
     a {
-      color: var(--white-color);
+      color: var(--light-color);
     }
   }
-
+  
   body.light__theme a {
     color: var(--dark-color);
   }
@@ -189,8 +209,8 @@ const { title } = Astro.props;
     max-width: 120rem;
   }
 
-  .text-green {
-    color: var(--dark-green);
+  .text-primary {
+    color: var(--primary-color);
   }
 
   .title-lg {
@@ -242,29 +262,6 @@ const { title } = Astro.props;
     filter: opacity(30%) grayscale(70%);
   }
 
-  /**** DARK THEME  ****/
-  @media (prefers-color-scheme: dark) {
-    body {
-      background: radial-gradient(circle at top, #15534d 0%, #021627 70%);
-      background-color: var(--dark-color);
-      background-repeat: no-repeat;
-      color: var(--white-color);
-    }
-
-    body.light__theme {
-      background: none;
-      background-color: var(--white-color);
-      color: var(--dark-color);
-    }
-
-    body.light__theme .text-green {
-      color: var(--dark-green);
-    }
-
-    .text-green {
-      color: var(--light-green);
-    }
-  }
 </style>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
