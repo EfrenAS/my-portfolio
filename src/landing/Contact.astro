@@ -7,7 +7,7 @@ import ContactNavigation from '../components/ContactNavigation.astro';
   <a
     href="mailto: histrix.dev@gmail.com?subject=Hola%20Efren%20me%20encantaria%20compartir%20mi%20idea%20contigo."
     target="_blank"
-    title="Correo personal de Efren de Anastacio Simeon">
+    title="Correo de trabajo de Efren de Anastacio Simeon">
       histrix.dev@gmail.com
   </a>
   <ContactNavigation />
@@ -19,10 +19,11 @@ import ContactNavigation from '../components/ContactNavigation.astro';
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
-    background-color: rgba(46, 194, 179, 0.3);
+    background-color: rgba(175, 166, 255, 20%);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     height: 30rem;
     max-height: 40rem;
+    margin-top: 4rem;
   }
   
   @media(min-width: 1200px) {
@@ -35,9 +36,9 @@ import ContactNavigation from '../components/ContactNavigation.astro';
     text-wrap: pretty;
     text-align: center;
   }
-
+  
   .contact > a {
-    color: rgba(25, 97, 90, 80%);
+    color: var(--secondary-color);
     font-size: clamp(var(--text-md), 4vw, var(--text-xl));
     font-weight: 600;
     text-decoration: underline;
@@ -46,36 +47,22 @@ import ContactNavigation from '../components/ContactNavigation.astro';
     transition: all 0.3s ease;
   }
   
-  .contact > a:hover {
-    color: rgba(25, 97, 90, 100%);
-    transform: scale(1.05);
-    text-underline-offset: 0.5rem;
-  }
-  
-  
   body.light__theme .contact > a {
-    color: rgba(25, 97, 90, 80%);
-  }
-
-  body.light__theme .contact > a:hover {
-    color: rgba(25, 97, 90, 100%);
+    color: var(--secondary-color);
   }
 
   @media (prefers-color-scheme: dark) {
     .contact > a {
-      color: rgba(46, 196, 182, 80%);
-    }
-    
-    .contact > a:hover {
-      color: rgba(46, 196, 182, 100%);
+      color: var(--primary-color);
     }
   }
-
+  
   body.dark__theme .contact > a {
-    color: rgba(46, 196, 182, 80%);
+    color: var(--primary-color);
   }
-
-  body.dark__theme .contact > a:hover {
-    color: rgba(46, 196, 182, 100%);
+  
+  .contact > a:hover {
+    transform: scale(1.05);
+    text-underline-offset: 0.5rem;
   }
 </style>

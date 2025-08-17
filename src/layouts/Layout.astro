@@ -101,9 +101,6 @@ const { title } = Astro.props;
   }
   
   body {
-    background-color: var(--light-color);
-    background: radial-gradient(circle at top, #15534d 0%, #021627 70%);
-    background-repeat: no-repeat;
     color: var(--dark-color);
     font-size: 1.6rem;
     height: 100vh;
@@ -115,12 +112,12 @@ const { title } = Astro.props;
     color: var(--dark-color);
   }
   
-  body.light__theme .text-green {
-    color: var(--dark-green);
+  body.light__theme .text-orange {
+    color: var(--accent-color);
   }
   
-  .text-green {
-    color: var(--light-green);
+  .text-orange {
+    color: var(--accent-color);
   }
 
   /**** DARK THEME  ****/
