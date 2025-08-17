@@ -1,8 +1,6 @@
 ---
 import Link from '../components/Link.astro';
-import FrontendSkills from '../components/FrontendSkills.astro';
-import BackendSkills from '../components/BackendSkills.astro';
-import OthersSkills from '../components/OthersSkills.astro';
+import SkillsCarrousel from '../components/SkillsCarrousel.astro';
 ---
 
 <main id="Home" class="home section-padding">
@@ -50,13 +48,13 @@ import OthersSkills from '../components/OthersSkills.astro';
         <strong> JavaScript</strong></span
       > y frameworks como <span class="text-orange">
         <strong> React</strong></span
+      > y <span class="text-orange">
+        <strong> Express</strong></span
       >.
     </p>
   </div>
-  <section class="skills-section">
-    <FrontendSkills />
-    <BackendSkills />
-    <OthersSkills />
+  <section class="container skills-section overflow-hidden">
+    <SkillsCarrousel/>
   </section>
 </main>
 
@@ -65,9 +63,10 @@ import OthersSkills from '../components/OthersSkills.astro';
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: space-around;
-    gap: 2rem;
-    height:  calc(100vh - 4rem);
+    justify-content: flex-start;
+    gap: 3rem;
+    min-height: 100vh;
+    padding: 6rem 1rem;
   }
 
   .hello-text {
@@ -120,7 +119,25 @@ import OthersSkills from '../components/OthersSkills.astro';
   .skills-section {
     display: flex;
     gap: 3rem;
-    flex-wrap: wrap;
     justify-content: center;
+    margin-top: auto;
+    width: 100%;
+    padding: 2rem 0;
   }
+
+  @media (min-width: 768px) {
+    .home {
+      padding: 4rem 0;
+      gap: 2.5rem;
+    }
+    
+    .experience-text {
+      margin-top: 2rem;
+    }
+    
+    .skills-section {
+      padding: 1.5rem 0;
+    }
+  }
+
 </style>

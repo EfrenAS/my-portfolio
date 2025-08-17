@@ -1,0 +1,109 @@
+---
+import Html from "../icons/Html.astro";
+import Javascript from "../icons/Javascript.astro";
+import React from "../icons/React.astro";
+import AstroIcon from "../icons/AstroIcon.astro";
+import Tailwind from "../icons/Tailwind.astro";
+import Css from "../icons/Css.astro";
+import Typescript from '../icons/Typescript.astro';
+import Php from '../icons/Php.astro';
+import Nodejs from '../icons/Nodejs.astro';
+import Express from '../icons/Express.astro';
+import Mysql from '../icons/Mysql.astro';
+import PostgreSql from '../icons/PostgreSql.astro';
+import MongoDb from '../icons/MongoDb.astro';
+import Copilot from '../icons/Copilot.astro';
+import Docker from '../icons/Docker.astro';
+import EsLint from '../icons/EsLint.astro';
+import Git from '../icons/Git.astro';
+import Github from '../icons/Github.astro';
+import Vite from '../icons/Vite.astro';
+import Vitest from '../icons/Vitest.astro';
+import Postman from '../icons/Postman.astro';
+---
+
+<div class="skills-carousel-container">
+  <div class="skills-carousel">
+    <!-- First set of icons -->
+    <Html class="skill"/>
+    <Javascript class="skill"/>
+    <React class="skill"/>
+    <AstroIcon class="skill bg_dark p-1 rounded"/>
+    <Tailwind class="skill"/>
+    <Css class="skill"/>
+    <Typescript class="skill"/>
+    <Nodejs class="skill"/>
+    <Express class="skill bg_dark p-1 rounded"/>
+    <MongoDb class="skill"/>
+    <PostgreSql class="skill"/>
+    <Mysql class="skill bg_dark p-1 rounded"/>
+    <Php class="skill bg_dark p-1 rounded"/>
+    <Copilot class="skill bg_dark p-1 rounded"/>
+    <Docker class="skill"/>
+    <EsLint class="skill"/>
+    <Git class="skill"/>
+    <Github class="skill"/>
+    <Vite class="skill"/>
+    <Vitest class="skill"/>
+    <Postman class="skill"/>
+    
+    <!-- Duplicated set for infinite effect -->
+    <Html class="skill"/>
+    <Javascript class="skill"/>
+    <React class="skill"/>
+    <AstroIcon class="skill bg_dark p-1 rounded"/>
+    <Tailwind class="skill"/>
+    <Css class="skill"/>
+    <Typescript class="skill"/>
+    <Nodejs class="skill"/>
+    <Express class="skill bg_dark p-1 rounded"/>
+    <MongoDb class="skill"/>
+    <PostgreSql class="skill"/>
+    <Mysql class="skill bg_dark p-1 rounded"/>
+    <Php class="skill bg_dark p-1 rounded"/>
+    <Copilot class="skill bg_dark p-1 rounded"/>
+    <Docker class="skill"/>
+    <EsLint class="skill"/>
+    <Git class="skill"/>
+    <Github class="skill"/>
+    <Vite class="skill"/>
+    <Vitest class="skill"/>
+    <Postman class="skill"/>
+  </div>
+</div>
+<style>
+  .skills-carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .skills-carousel {
+    display: flex;
+    gap: 5rem;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+  }
+
+  .skills-carousel:hover {
+    animation-play-state: paused;
+  }
+
+  .skill {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-50% - 2.5rem)); /* Half the width of the carousel */
+    }
+  }
+</style>

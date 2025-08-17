@@ -206,10 +206,6 @@ const { title } = Astro.props;
     max-width: 120rem;
   }
 
-  .text-primary {
-    color: var(--primary-color);
-  }
-
   .title-lg {
     font-size: var(4rem);
   }
@@ -239,10 +235,15 @@ const { title } = Astro.props;
   }
 
   .skill {
+    cursor: pointer;
     filter: opacity(50%) grayscale(90%);
     height: clamp(3rem, 10vw, 6rem);
     width: clamp(3rem, 10vw, 6rem);
     transition: all 0.3s ease-in-out;
+  }
+
+  .skill:hover {
+    filter: opacity(100%) grayscale(0%);
   }
 
   body.light__theme .skill {
