@@ -1,8 +1,8 @@
 ---
   import Pill from "./Pill.astro"
-  import Link from "./Link.astro";
   import { type CollectionEntry } from "astro:content";
-
+  import CollapsedTextButton from "./CollapsedTextButton.astro";
+  
   interface Props {
     work: CollectionEntry<'work'>;
   }
@@ -32,12 +32,12 @@
         })
       }
     </p>
-    <div class="work__description truncate_text">
+    <div class="work__description collapsed">
       <Content />
     </div>
   </div>
-  <div class="work__footer">
-    <Link href={work.data.link} target="_blank" rel="noopener noreferrer" title="Link to work" isWhite isBordered>Ver más 🠆</Link>
+  <div class="work-footer">
+    <CollapsedTextButton id={work.slug}/>
   </div>
 </article>
 <style>
@@ -85,13 +85,14 @@
   body.dark__theme .work__card {
     background-color: rgba(15, 12, 41, 90%);
   }
-
-  .truncate_text {
+  
+  .collapsed {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+    animation: collapse 0.2s linear;
   }
 
   .work__header{
@@ -133,8 +134,7 @@
     margin-block: 1lh;
   }
 
-  .work__footer {
-    width: 100%;
+  .work-footer {
     padding-top: 2rem;
     cursor: pointer;
   }
@@ -150,4 +150,15 @@
     }
   }
 
+  @keyframes collapse {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 </style>

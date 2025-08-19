@@ -62,11 +62,18 @@ import SkillsCarrousel from '../components/SkillsCarrousel.astro';
   .home {
     display: flex;
     align-items: center;
+    justify-content: space-around;
     flex-direction: column;
-    justify-content: flex-start;
     gap: 3rem;
     min-height: 100vh;
     padding: 6rem 1rem;
+  }
+  
+  @media(min-width: 768px) {
+    .home {
+      gap: 2.5rem;
+      padding: 4rem 1rem;
+    }
   }
 
   .hello-text {
@@ -95,6 +102,12 @@ import SkillsCarrousel from '../components/SkillsCarrousel.astro';
     text-wrap: pretty;
     margin-top: 4rem;
   }
+  
+  @media (min-width: 768px) {
+    .experience-text {
+      margin-top: 2rem;
+    }
+  }
 
   .links-container {
     display: flex;
@@ -120,24 +133,14 @@ import SkillsCarrousel from '../components/SkillsCarrousel.astro';
     display: flex;
     gap: 3rem;
     justify-content: center;
-    margin-top: auto;
     width: 100%;
     padding: 2rem 0;
   }
 
   @media (min-width: 768px) {
-    .home {
-      padding: 4rem 0;
-      gap: 2.5rem;
-    }
-    
-    .experience-text {
-      margin-top: 2rem;
-    }
-    
     .skills-section {
       padding: 1.5rem 0;
+      margin-top: 2rem;
     }
   }
-
 </style>

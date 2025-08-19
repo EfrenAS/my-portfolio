@@ -1,0 +1,105 @@
+---
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<collapse-button data-id={id}>
+  <button 
+    type="button" 
+    class="work-button collapse" 
+    aria-label="Show more work text"
+    data-id={id}
+  >
+    <span>Ver más 🠗</span>
+  </button>
+</collapse-button>
+<style>
+  .work-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.2rem;
+    margin: 0;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .work-button span {
+    font-family: var(--font-titles);
+    font-size: var(--text-normal);
+    font-weight: 600;
+  }
+
+  body.light__theme .work-button {
+    color: var(--dark-color);
+  }
+
+  .work-button::after {
+    content: ' ';
+    position: absolute;
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 35%;
+    transition: all 0.4s ease-out;
+  }
+
+  .work-button:hover::after,
+  .work-button:active::after {
+    width: 100%;
+  }
+
+  body.light__theme .work-button::after {
+    background-color: var(--secondary-color);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .work-button::after {
+      background-color: var(--primary-color);
+    }
+  }
+
+  body.dark__theme .work-button {
+    color: var(--primary-color);
+  }
+  .work-button:active::after {
+    background-color: var(--primary-color);
+  }
+</style>
+<script>
+  class CollapseButton extends HTMLElement {
+    
+    constructor() {
+      super();
+      const button = this.querySelector('button');
+      const spanButton = this.querySelector('span')
+
+      if(!button) throw new Error('No se encontró el botón de colapsar');
+      if(!spanButton) throw new Error('No se encontró el span del botón de colapsar');
+      
+      button.addEventListener('click', () => this.handleOnClick(spanButton))
+    }
+    
+    handleOnClick = (spanButton: HTMLSpanElement) => {
+      const workCard = this.closest('.work__card')
+      const workDescription = workCard?.querySelector('.work__description')
+      
+      workDescription?.classList.toggle('collapsed')
+      
+      if (workDescription?.classList.contains('collapsed')) {
+        spanButton.innerHTML = 'Ver más 🠗'
+      } else {
+        spanButton.innerHTML = 'Ver menos 🠕'
+      }
+    }
+  }
+
+  customElements.define('collapse-button', CollapseButton);
+</script>

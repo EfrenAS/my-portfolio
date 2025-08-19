@@ -1,6 +1,6 @@
 ---
 import Navigation from './Navigation.astro';
-import ToggleTheme from './ToggleTheme.astro';
+import ToggleThemeButton from './ToggleThemeButton.astro';
 import MenuMobile from './MenuMobile.astro';
 import MenuSocialMedia from './MenuSocialMedia.astro';
 import Navbar from './Navbar.astro';
@@ -11,7 +11,7 @@ import Navbar from './Navbar.astro';
   <MenuSocialMedia />
   <Navigation />
   <Navbar />
-  <ToggleTheme />
+  <ToggleThemeButton />
 </header>
 
 <style>
@@ -19,14 +19,12 @@ import Navbar from './Navbar.astro';
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
     grid-area: header;
   }
 
-  @media(min-width: 1200px) {
+  @media(min-width: 600px) {
     header {
-      padding: 1rem 3rem;
+      padding: 1rem;
     }
   }
-
 </style>

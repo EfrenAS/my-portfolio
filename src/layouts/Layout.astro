@@ -250,6 +250,10 @@ const { title } = Astro.props;
     filter: opacity(50%) grayscale(90%);
   }
 
+  body.light__theme .skill:hover {
+    filter: opacity(100%) grayscale(0%);
+  }
+
   @media(prefers-color-scheme: dark) {
     .skill {
       filter: opacity(30%) grayscale(70%);
