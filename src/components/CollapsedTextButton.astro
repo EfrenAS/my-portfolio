@@ -13,7 +13,7 @@ const { id } = Astro.props;
     aria-label="Show more work text"
     data-id={id}
   >
-    <span>Ver más 🠗</span>
+    <span>Ver más ▼</span>
   </button>
 </collapse-button>
 <style>
@@ -24,9 +24,11 @@ const { id } = Astro.props;
     padding: 0.2rem;
     margin: 0;
     position: relative;
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
+    gap: 1rem;
   }
 
   .work-button span {
@@ -94,9 +96,9 @@ const { id } = Astro.props;
       workDescription?.classList.toggle('collapsed')
       
       if (workDescription?.classList.contains('collapsed')) {
-        spanButton.innerHTML = 'Ver más 🠗'
+        spanButton.innerHTML = 'Ver más ▼'
       } else {
-        spanButton.innerHTML = 'Ver menos 🠕'
+        spanButton.innerHTML = 'Ver menos ▲'
       }
     }
   }
