@@ -1,6 +1,6 @@
 ---
   import Pill from "./Pill.astro"
-  import { type CollectionEntry } from "astro:content";
+  import { type CollectionEntry, render } from "astro:content";
   import CollapsedTextButton from "./CollapsedTextButton.astro";
   
   interface Props {
@@ -9,7 +9,7 @@
 
   const { work } = Astro.props;
   const { company, role, date, tags } = work.data;
-  const {Content} = await work.render()
+  const {Content} = await render(work)
 ---
 <article class="work__card">
   <div class="work__header">
@@ -37,7 +37,7 @@
     </div>
   </div>
   <div class="work-footer">
-    <CollapsedTextButton id={work.slug} client:visible/>
+    <CollapsedTextButton id={work.id} client:visible/>
   </div>
 </article>
 <style>
